@@ -31,7 +31,7 @@ class SessionForm extends React.Component{
     // }
 
     handleDemo() {
-        this.props.processForm({ username: "demouser", password: "password" });
+        this.props.loginDemo();
       }
 
     render() {
@@ -50,7 +50,7 @@ class SessionForm extends React.Component{
                     </button> */}
                     <img className="logo" src={window.logoURL} width="130px"/>
                     <h2 className="appName">NeverEverNote</h2>
-                    
+
                     <form className="inner-form" onSubmit={this.handleSubmit}>
                         {/* <h1>{this.props.formType}</h1> */}
 
