@@ -7,19 +7,17 @@ import { Switch } from "react-router-dom";
 import LoginFormContainer from "./session_form/login_form_container";
 import SignupFormContainer from "./session_form/signup_form_container";
 import NavBarContainer from "./navbar/navbar_container"
+// import PageNotFound from "./session_form/page_not_found"
 
 
 const App = () => (
     <div>
-        {/* <header>
-            <h1>NeverEverNote</h1>
-            <NavBarContainer/>
-        </header> */}
-        <Route path="/"  component={NavBarContainer}/>
+
         <Switch>
             <AuthRoute exact path='/login' component={LoginFormContainer}/>
             <AuthRoute exact path='/signup' component={SignupFormContainer}/>
-            {/* <Route component={ErrorContainer}/> */}
+            <Route path="/"  component={NavBarContainer}/>
+            {/* <Route component={PageNotFound}/> */}
         </Switch>
 
     </div>

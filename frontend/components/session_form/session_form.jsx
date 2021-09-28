@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class SessionForm extends React.Component{
     constructor(props) {
@@ -34,29 +35,43 @@ class SessionForm extends React.Component{
       }
 
     render() {
+        const {formType} = this.props;
+
+        // let sessionLink;
+        // formType === "Log In" ? sessionLink = <Link to="/signup"><p className="sessionlinksP">Create Account</p></Link> : sessionLink = <Link to="/login"><p className="sessionlinksP">Already have an account?</p></Link>
         return(
             <div className="session-form">
                 <div className="form-box">
-                    <img src={window.logoUrl} />
+                    {/* <img src={window.logoUrl} />
                     <br/>
-                    <h1>{this.props.formType}</h1>
-                    <button onClick={this.handleDemo} >
+                    <h1>{this.props.formType}</h1> */}
+                    {/* <button onClick={this.handleDemo} >
                         <span>Demo User</span>
-                    </button>
-                    <form onSubmit={this.handleSubmit}>
+                    </button> */}
+                    <img className="logo" src={window.logoURL} width="130px"/>
+                    <h2 className="appName">NeverEverNote</h2>
+                    
+                    <form className="inner-form" onSubmit={this.handleSubmit}>
                         {/* <h1>{this.props.formType}</h1> */}
 
-                        <label>Username:
-                            <input type="text" value={this.state.username} onChange={this.update('username')}/>
+  
+                        <label className="username" >
+                            <input  type="text" value={this.state.username} onChange={this.update('username')} placeholder="username"/>
                         </label>
-                        <br/>
 
-                        <label>Password:
-                            <input type="password" value={this.state.password} onChange={this.update('password')}/>
+
+                        <label className="password" >
+                            <input  type="password" value={this.state.password} onChange={this.update('password')} placeholder="password"/>
                         </label>    
+                        <button className="submission" >Continue</button>
                         <br/>
 
-                        <input type="submit" value={this.props.formType} />
+
+                        <div className="session-bottom">
+                            <div className="text">{this.props.text}</div>
+                            <div className="switching" >{this.props.navLink}</div>
+                            <div className="demo-user"><a onClick={this.handleDemo}>Log in with Demo User</a></div>
+                        </div>
                     </form>
                 </div>
             </div>

@@ -31,6 +31,7 @@ const NavBarLinks = ({ currentUser, logout }) => {
         <nav>
             <Link to="/login"> Log In </Link>
             <Link to="/signup">Sign Up</Link>
+            {/* <button></button> */}
         </nav>
     )
 

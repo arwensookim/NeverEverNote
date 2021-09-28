@@ -9,6 +9,8 @@ import { signup, login } from "../../actions/session_actions"
 const mapStateToProps =({ errors }) => ({
     errors: errors.session,
     formType: 'Sign Up',
+    text: "already have an account?",
+    navLink: <Link to="/login" >Log In</Link>
 })
 
 const mapDispatchToProps = (dispatch) =>  ({
