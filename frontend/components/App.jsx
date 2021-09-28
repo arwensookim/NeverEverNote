@@ -15,10 +15,11 @@ const App = () => (
             <h1>NeverEverNote</h1>
             <NavBarContainer/>
         </header> */}
+        <Route path="/"  component={NavBarContainer}/>
         <Switch>
-            <Route exact path="/"  component={NavBarContainer}/>
             <AuthRoute exact path='/login' component={LoginFormContainer}/>
             <AuthRoute exact path='/signup' component={SignupFormContainer}/>
+            {/* <Route component={ErrorContainer}/> */}
         </Switch>
 
     </div>

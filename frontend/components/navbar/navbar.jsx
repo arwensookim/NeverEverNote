@@ -28,8 +28,8 @@ class Navbar extends React.Component {
       <header className="header">
         <div className="navbar">
           <Link to="/">
-            <img className="logo-image" src="http://logok.org/wp-content/uploads/2015/02/Evernote-logo.png" />
-            <h1>NeverEverNote</h1>
+            <img className="logo-image" src={window.logoURL}/>
+            <h1 className="app-name">NeverEverNote</h1>
           </Link>
 
           <NavBarLinksContainer />
