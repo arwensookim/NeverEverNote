@@ -8,21 +8,6 @@ class Navbar extends React.Component {
   }
 
   render() {
-  //   const {currentUser, logout} = this.props;
-
-  //   const display = currentUser ? (
-  //     <div>
-  //       <p>
-  //         Hello, {currentUser.username}
-  //       </p>
-  //       <button onClick={logout}>Log out</button>
-  //     </div>
-  //   ) : (
-  //     <div>
-  //       <Link to='/signup'> Sign up </Link>
-  //       <Link to='/login'> Login </Link>
-  //     </div>
-  //   );
 
     return (
       <header className="header">

@@ -41,7 +41,7 @@ class SessionForm extends React.Component{
     }
     handleDemo() {
         this.props.loginDemo();
-      }
+    }
 
     render() {
         const {formType} = this.props;
