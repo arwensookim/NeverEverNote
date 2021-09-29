@@ -30,6 +30,15 @@ class SessionForm extends React.Component{
     //             .then( () => this.props.history.push("/main"));
     // }
 
+    renderErrors() {
+        return(
+            <ul>
+                {this.props.errors.map((error, i) => (
+                    <li key={`error- ${i}`}>{error}</li>
+                ))}
+            </ul>
+        )
+    }
     handleDemo() {
         this.props.loginDemo();
       }
@@ -50,6 +59,7 @@ class SessionForm extends React.Component{
                     </button> */}
                     <img className="logo" src={window.logoURL} width="130px"/>
                     <h2 className="appName">NeverEverNote</h2>
+                    <div className="errors">{this.renderErrors()}</div>
 
                     <form className="inner-form" onSubmit={this.handleSubmit}>
                         {/* <h1>{this.props.formType}</h1> */}

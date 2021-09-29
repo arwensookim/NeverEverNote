@@ -27,9 +27,9 @@ class Navbar extends React.Component {
     return (
       <header className="header">
         <div className="navbar">
-          <Link to="/">
+          <Link to="/"  className="logo-link" >
             <img className="logo-image" src={window.logoURL}/>
-            <h1 className="app-name">NeverEverNote</h1>
+            <h1 >NeverEverNote</h1>
           </Link>
 
           <NavBarLinksContainer />
