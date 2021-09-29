@@ -9,6 +9,10 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
+  has_many :notes,
+    foreign_key: :user_id,
+    class_name: :Note
+
   # Class method for finding a user ONLY if we have the correct username and password
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
