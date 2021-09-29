@@ -1,5 +1,5 @@
 class Api::NotesController < ApplicationController
-    before_action :ensure_logged_in, only [:create, :index]
+    before_action :ensure_logged_in, only: [:create, :index]
 
     def index
         @notes = @current_user.notes
