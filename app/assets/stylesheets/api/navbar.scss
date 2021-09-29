@@ -1,6 +1,16 @@
+
 .navbar {
     display: flex;
     align-items: center;
+    height: 100px;
+    padding: 0 50px;
+    position: relative;
+    width: 100%;
+    max-width: 1500px;
+    min-width: 500px;
+    margin: 0 auto;
+    margin-top: 10px;
+    box-shadow: 0 2px 2px 0 rgb(155, 155, 155);
     // background-color: black;
 
 }
@@ -13,7 +23,14 @@
     text-decoration: none;
     letter-spacing: -1px;
     color: black;
+    margin-left: 80px;
+
 }
+
+.logo-image {
+    height: 80px;
+}
+
 
 .navSession {
     display: inline-block;
@@ -32,5 +49,52 @@
     a:hover {
         color: rgb(44, 64, 44);
         border: 3px solid rgb(44, 64, 44);
+    }
+    
+    .login {
+        color:green;
+    }
+}
+
+.navbar-left {
+    list-style-type: none;
+    display: flex;
+    align-content: center;
+    margin-left: 50px;
+    height: 100%;
+    // justify-content: space-around;
+
+    li {
+        display: flex;
+        align-items: center;
+        // justify-content: space-between;
+        // justify-content: center;
+        height: 100%;
+        float: left;
+        text-transform: uppercase;
+        letter-spacing: .5px;
+        transition: box-shadow 0.08s;
+        margin-right: 20px;
+    }
+
+    a {
+        display: flex;
+        align-items: center;
+        // justify-content: space-around;
+        // justify-content: center;
+        height: 100%;
+        color: black;
+        font-family: "Soleil_Bold" Arial, Helvetica, sans-serif;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 700;
+    }
+
+    li:hover {
+        box-shadow: inset 0 -5px 0 0 green;
+
+        a {
+            color: green;
+        }
     }
 }

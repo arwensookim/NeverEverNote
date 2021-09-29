@@ -30,7 +30,7 @@ const NavBarLinks = ({ currentUser, logout }) => {
     const loginOrSignup = () => (
         <nav className="navSession">
             <Link to="/login" className="login"> Log In </Link>
-            <Link to="/signup" className="signup">Sign Up</Link>
+            {/* <Link to="/signup" className="signup">Sign Up</Link> */}
         </nav>
     )
 

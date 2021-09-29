@@ -1,0 +1,59 @@
+.bar {
+    display: flex;
+    height: 100px;
+    background-color: black;
+    color: white;
+    // justify-content: center;
+    // align-content: center;
+    align-items: center;
+    margin-top: 5px;
+    justify-content: space-between;
+
+
+    .download-button {
+        border-radius: 5px;
+        border: none;
+        font-size: 15px;
+        font-weight: bold;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: white;
+        background-color: green;
+        margin-right: 50px;
+        width: 200px;
+        height: 50px;
+    }
+}
+
+.text {
+    display: flex;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    // font-weight: bold;
+    font-size: 25px;
+    margin-left: 40px;
+}
+
+.homepage {
+    display: flex;
+    flex-direction: column;
+
+
+    .main-top {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+
+        .homepage-image {
+            padding: 20px;
+            object-fit: contain;
+            width: 100%;
+            height: 800px;
+        }
+
+        h1 {
+            font-size: 50px;
+            align-items: center;
+        }
+    }
+}
