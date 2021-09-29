@@ -17,6 +17,7 @@ class Homepage extends React.Component{
                     <Link to='/signup'>
                         <button className="signup-button" >Sign up for free</button>
                     </Link>
+                    <Link to='/login' className="login-link">Already have account? Log In</Link>
                 </div>
 
                 <div className="main-middle">
