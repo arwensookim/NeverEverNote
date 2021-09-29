@@ -1,5 +1,5 @@
 class Note < ApplicationRecord
-    validates :user_id, presense: true
+    validates_presence_of :title
 
     belongs_to :author,
         foreign_key: :user_id,
