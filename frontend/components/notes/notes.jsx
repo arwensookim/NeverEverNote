@@ -10,6 +10,7 @@ class Notes extends React.Component{
         const {notes, fetchNote} = this.props;
         return(
             <div>
+                <h2>hello</h2>
                 <ul>
                     {notes.map( note => (
                         <NotesItem key={note.id} note={note} fetchNote={fetchNote} />

@@ -6,8 +6,9 @@ import NotesContainer from "../notes/notes_container";
 
 const Main = () => {
     return (
+
         <div>
-            <Route path="/notes" component={NotesContainer}/>
+            <NotesContainer />
         </div>
     )
 }

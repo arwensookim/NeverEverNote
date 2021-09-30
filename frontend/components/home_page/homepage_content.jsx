@@ -1,11 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import NavBarContainer from "../navbar/navbar_container";
+
 
 class Homepage extends React.Component{
     render() {
         return(
+
             <div className="homepage">
+                <NavBarContainer />
                 <div className="bar">
                     <p className="main-text">never ever make your life messy</p>
                     <button className="download-button" >Downlaod</button>
