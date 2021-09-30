@@ -1,15 +1,14 @@
 import { connect } from "react-redux";
 
 import Notes from "./notes";
-import { fetchNotes } from "../../actions/note_actions";
-import { fetchNote } from "../../util/note_api_util";
+import { fetchNote } from "../../actions/note_actions";
 
 const mSTP = ({ entities: {notes} }) => ({
     notes: Object.values(notes)
 })
 
 const mDTP = dispatch => ({
-    fetchNotes: () => dispatch(fetchNotes())
+    fetchNote: () => dispatch(fetchNote())
 })
 
 export default connect(mSTP, mDTP)(Notes);

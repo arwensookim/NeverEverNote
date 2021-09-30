@@ -9,3 +9,10 @@
 User.destroy_all
 
 demo = User.create!(username: "demouser", password: "password")
+
+note1 = Note.create!(
+    title: '',
+    body: '',
+    user_id: demo,id,
+    
+)
