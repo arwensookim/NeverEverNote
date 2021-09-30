@@ -1,6 +1,7 @@
 import React from "react";
 import NotesItem from "./notes_item";
 import Notes from "./notes";
+import NotesContainer from "../notes_index/notes_container";
 
 class NotesForm extends React.Component{
     constructor(props) {
@@ -10,8 +11,12 @@ class NotesForm extends React.Component{
     render() {
         return(
             <div>
-                <h2>Here is your NOTES!!</h2>
-                <NotesItem />
+                <div>
+                
+                </div>
+                <div>
+                    <NotesContainer />
+                </div>
             </div>
         )
     }

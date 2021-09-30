@@ -1,4 +1,5 @@
 import React from "react";
+import NotesItem from "./notes_item";
 
 class Notes extends React.Component{
     constructor(props) {
@@ -6,14 +7,17 @@ class Notes extends React.Component{
 
     }
 
+    componentDidMount() {
+        this.props.fetchNotes();
+    }
+
     render() {
-        const {notes, fetchNote} = this.props;
+        const {notes} = this.props;
         return(
             <div>
-                <h2>hello</h2>
                 <ul>
                     {notes.map( note => (
-                        <NotesItem key={note.id} note={note} fetchNote={fetchNote} />
+                        <NotesItem key={note.id} note={note} />
                     ))}
                 </ul>
                 
