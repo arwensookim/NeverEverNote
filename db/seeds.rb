@@ -9,6 +9,7 @@
 User.destroy_all
 
 demo = User.create!(username: "demouser", password: "password")
+arwen = User.create!(username: "miknewra", password: "password123")
 
 notebook1 = Notebook.create!(
     title: 'Coding',
@@ -19,5 +20,12 @@ note1 = Note.create!(
     title: 'My Fullstack Project',
     body: 'NeverEverNote for my first fullstack project is not easy',
     user_id: demo.id,
+    notebook_id: notebook1.id
+)
+
+note2 = Note.create!(
+    title: 'Danny is Smart',
+    body: 'Danny helped me debugging a lot and it is not working!!',
+    user_id: arwen.id,
     notebook_id: notebook1.id
 )

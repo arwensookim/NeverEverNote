@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 
-import Notes from "./notes";
+import Notes from "./notes_index";
 import { fetchNotes } from "../../actions/note_actions";
 
 const mSTP = ({ entities: {notebooks, notes} }) => ({

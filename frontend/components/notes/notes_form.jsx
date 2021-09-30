@@ -1,7 +1,7 @@
 import React from "react";
-import NotesItem from "./notes_item";
-import Notes from "./notes";
-import NotesContainer from "../notes_index/notes_container";
+import NotesItem from "./notes_index_item";
+import Notes from "./notes_index";
+import NotesContainer from "./notes_index_container";
 
 class NotesForm extends React.Component{
     constructor(props) {
@@ -12,7 +12,7 @@ class NotesForm extends React.Component{
         return(
             <div>
                 <div>
-                
+
                 </div>
                 <div>
                     <NotesContainer />

@@ -1,5 +1,5 @@
 import React from "react";
-import NotesItem from "./notes_item";
+import NotesItem from "./notes_index_item";
 
 class Notes extends React.Component{
     constructor(props) {

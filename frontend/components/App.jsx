@@ -8,7 +8,7 @@ import LoginFormContainer from "./session_form/login_form_container";
 import SignupFormContainer from "./session_form/signup_form_container";
 // import NavBarContainer from "./navbar/navbar_container"
 import Homepage from "./home_page/homepage_content";
-import NotesContainer from "./notes_index/notes_container";
+import NotesContainer from "./notes/notes_index_container";
 import Main from "./main_page/main";
 // import PageNotFound from "./session_form/page_not_found"
 
