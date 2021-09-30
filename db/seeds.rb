@@ -10,9 +10,14 @@ User.destroy_all
 
 demo = User.create!(username: "demouser", password: "password")
 
+notebook1 = Notebook.create!(
+    title: 'Coding',
+    user_id: demo.id,
+)
+
 note1 = Note.create!(
-    title: '',
-    body: '',
-    user_id: demo,id,
-    
+    title: 'My Fullstack Project',
+    body: 'NeverEverNote for my first fullstack project is not easy',
+    user_id: demo.id,
+    notebook_id: notebook1.id
 )
