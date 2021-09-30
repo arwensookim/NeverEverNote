@@ -1,0 +1,1 @@
+json.partial "api/notebookss/notebook" notebook: @notebook
