@@ -1,16 +1,18 @@
 import React from "react";
-// import { Route, Switch, Link } from "react-router-dom";
+import { Route, Switch, Link } from "react-router-dom";
 
-// import NotesContainer from "../notes/notes_index_container";
-import NotesForm from "../notes/notes_form";
+
+// import NotesForm from "../notes/notes_form";
+import NotesIndexContainer from "../notes/notes_index_container";
+// import NoteShowContainer from "../notes/note_show_container";
 // import NotebooksContainer from "../notebooks/notebooks_index_container"
 
 const Main = () => {
     return (
-        // <Route path="/notes" component={NotesForm}/>
         <div>
-            {/* <NotebooksContainer /> */}
-            <NotesForm />
+            {/* <NotesIndexContainer /> */}
+            <Route path="/notes" component={NotesIndexContainer}/>
+
         </div>
     )
 }

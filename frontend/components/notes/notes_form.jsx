@@ -1,6 +1,7 @@
 import React from "react";
 
-import NotesContainer from "./notes_index_container";
+import NotesIndexContainer from "./notes_index_container";
+import NotesIndex from "./notes_index";
 
 class NotesForm extends React.Component{
     constructor(props) {
@@ -18,7 +19,8 @@ class NotesForm extends React.Component{
 
                 </div>
                 <div>
-                    <NotesContainer />
+                    <NotesIndexContainer />
+                    {/* <NotesIndex/> */}
                 </div>
             </div>
         )

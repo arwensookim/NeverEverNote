@@ -29,3 +29,10 @@ note2 = Note.create!(
     user_id: arwen.id,
     notebook_id: notebook1.id
 )
+
+note3 = Note.create!(
+    title: 'hello',
+    body: 'hellohello',
+    user_id: demo.id,
+    notebook_id: notebook1.id
+)

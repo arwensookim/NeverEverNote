@@ -1,5 +1,6 @@
 import React from "react";
 import NotesIndexItem from "./notes_index_item";
+import NotesIndexContainer from "./notes_index_container";
 
 class NotesIndex extends React.Component{
     constructor(props) {
@@ -13,6 +14,7 @@ class NotesIndex extends React.Component{
 
     render() {
         const {notes, deleteNote } = this.props;
+        console.log(notes);
         return(
             <div>
                 <ul>
