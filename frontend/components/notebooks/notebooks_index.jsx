@@ -1,9 +1,14 @@
 import React from "react";
 
-class CreateNotebookForm extends React.Component{
+class NotebooksIndex extends React.Component{
     constructor(props) {
         super(props) 
     }
+
+    componentDidMount() {
+        this.props.fetchNotebooks();
+    }
+
 
     render() {
         return(
@@ -12,4 +17,4 @@ class CreateNotebookForm extends React.Component{
     }
 }
 
-export default CreateNotebookForm;
+export default NotebooksIndex;

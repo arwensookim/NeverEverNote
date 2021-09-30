@@ -1,7 +1,7 @@
 import React from "react";
-import NotesItem from "./notes_index_item";
+import NotesIndexItem from "./notes_index_item";
 
-class Notes extends React.Component{
+class NotesIndex extends React.Component{
     constructor(props) {
         super(props)
 
@@ -12,18 +12,17 @@ class Notes extends React.Component{
     }
 
     render() {
-        const {notes} = this.props;
+        const {notes, deleteNote } = this.props;
         return(
             <div>
                 <ul>
                     {notes.map( note => (
-                        <NotesItem key={note.id} note={note} />
+                        <NotesIndexItem key={note.id} note={note} deleteNote={deleteNote} />
                     ))}
                 </ul>
-                
             </div>
         )
     }
 }
 
-export default Notes;
+export default NotesIndex;

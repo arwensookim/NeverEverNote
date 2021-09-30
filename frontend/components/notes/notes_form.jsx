@@ -1,13 +1,16 @@
 import React from "react";
-import NotesItem from "./notes_index_item";
-import Notes from "./notes_index";
+
 import NotesContainer from "./notes_index_container";
 
 class NotesForm extends React.Component{
     constructor(props) {
         super(props)
+        this.state = this.props.notes;
     }
 
+    update(field) {
+        return e => this.setState({ [field]: e.currentTarget.value})
+    }
     render() {
         return(
             <div>
