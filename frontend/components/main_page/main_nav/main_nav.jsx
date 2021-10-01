@@ -9,7 +9,13 @@ class mainNav extends React.Component {
     }
 
     handleCreateNote() {
-        const notebookId = null;
+        let notebookId;
+
+        if(this.props.match.params.notebookId) {
+            notebookId = this.props.match.params.notebookId;
+        } else {
+            notebookId = null;
+        }
 
         let newNote = {
             title: "",
@@ -18,31 +24,42 @@ class mainNav extends React.Component {
             notebook_id: notebookId
         };
 
-        this.props.createNote(newNote).then( res => this.props.history.push(`/notes/${res.note.id}`))
+        this.props.createNote(newNote)
+            .then( res => {
+                if (this.props.match.params.notebookId) {
+                    this.props.history.push(`/notebooks/${this.props.match.params.notebookId}/notes/${res.note.id}`);
+                } else {
+                    this.props.history.push(`/notes/${res.note.id}`);
+                }
+            })
     }
 
     render() {
-        if (!this.props.currentUser) return null;
+        const {currentUser} = this.props;
+        if (!currentUser) return null;
         return(
             <div className="main-nav">
                 <div className="greeting">
-                    <p>Welcome, {this.props.currentUser.username}</p>
+                    <div className="user-icon">{currentUser.username[0]}</div> 
+                    <p>Welcome, {currentUser.username}</p>
                 </div>
 
                 <div className="add-note">
-                    <i className="fas fa-plus">
                         <button className="create-note" onClick={this.handleCreateNote}>
-                         Create Note
+                        <div className="plus-icon">+</div><div>Create Note</div>
                         </button>
-                    </i>
-
                 </div>
                 <div className="links">
-                    <Link to='/notes'> <i className="fas fa-sticky-note fa-fw"></i> Notes</Link>
+                    <ul className="nav-list">
+                        <Link to='/notes'> <i className="fas fa-sticky-note"></i> Notes</Link>
+                        <br/>
+                        <Link to='/notebooks'><i className="fas fa-book fa-fw"></i> Notebooks </Link>
+
+                    </ul>
                 </div>
 
 
-                <div className="main-logout">
+                <div className="footer">
                     <Link to="/" onClick={this.props.logout}>Log Out</Link>
                 </div>
             </div>

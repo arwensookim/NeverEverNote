@@ -9,8 +9,7 @@ import mainNavContainer from "./main_nav/main_nav_container";
 
 const Main = () => {
     return (
-        <div>
-            {/* <NotesIndexContainer /> */}
+        <div className="main-page">
             <Route path="/notes" component={mainNavContainer}/>
             <Route path="/notes" component={NotesIndexContainer}/>
 

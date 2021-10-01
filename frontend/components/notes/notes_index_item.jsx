@@ -5,9 +5,10 @@ class NotesItem extends React.Component{
         return(
             <li>
                 <div>
-                        <h2 className="note-title">{this.props.note.title}</h2>
-                        <p className="note-body">{this.props.note.body}</p>
-                        
+                    <p className="note-title">{this.props.note.title}</p>  
+                </div>
+                <div>
+                    <p className="note-body">{this.props.note.body}</p>
                 </div>
 
             </li>

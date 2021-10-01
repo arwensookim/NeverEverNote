@@ -4,7 +4,7 @@ import NotebooksIndex from "./notebooks_index";
 
 
 const mSTP = state => ({
-    currentUser: state.entities.user,
+    currentUser: state.entities.users[state.session.id],
     notebooks: Object.vaalue(notebooks)
 })
 

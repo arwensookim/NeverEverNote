@@ -14,7 +14,6 @@ class NotesIndex extends React.Component{
 
     render() {
         const {notes, deleteNote } = this.props;
-        console.log(notes);
         return(
             <div>
                 <ul>
