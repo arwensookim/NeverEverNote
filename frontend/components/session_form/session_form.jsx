@@ -23,40 +23,33 @@ class SessionForm extends React.Component{
         this.props.processForm(user);
     }
 
-    // handleDemo(e) {
-    //     e.preventDefault();
-    //     this.props
-    //             .login({username: "demouser", password: "demouser123"})
-    //             .then( () => this.props.history.push("/main"));
-    // }
 
     renderErrors() {
         return(
-            <ul>
+            <div>
                 {this.props.errors.map((error, i) => (
-                    <li key={`error- ${i}`}>{error}</li>
+                    <p key={`error- ${i}`}>{error}</p>
                 ))}
-            </ul>
+            </div>
         )
     }
     handleDemo() {
         this.props.loginDemo();
     }
 
+    componentWillUnmount() {
+        this.props.removeErrors();
+    }
+
     render() {
-        const {formType} = this.props;
+        // const {formType} = this.props;
 
         // let sessionLink;
         // formType === "Log In" ? sessionLink = <Link to="/signup"><p className="sessionlinksP">Create Account</p></Link> : sessionLink = <Link to="/login"><p className="sessionlinksP">Already have an account?</p></Link>
         return(
             <div className="session-form">
                 <div className="form-box">
-                    {/* <img src={window.logoUrl} />
-                    <br/>
-                    <h1>{this.props.formType}</h1> */}
-                    {/* <button onClick={this.handleDemo} >
-                        <span>Demo User</span>
-                    </button> */}
+    
                     <img className="logo" src={window.logoURL} width="130px"/>
                     <h2 className="appName">NeverEverNote</h2>
                     <div className="errors">{this.renderErrors()}</div>

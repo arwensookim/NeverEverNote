@@ -19,7 +19,7 @@ const receiveErrors = errors => ({
     errors
 })
 
-const removeErrors = () => ({
+export const removeErrors = () => ({
     type: REMOVE_ERRORS
 })
 
@@ -27,7 +27,6 @@ const removeErrors = () => ({
 export const signup = user => dispatch => (
     APIUtil.signup(user)
     .then(user => {
-        console.log(user)
         return dispatch(receiveCurrentUser(user))
     }, 
     err => dispatch(receiveErrors(err.responseJSON)))
@@ -45,6 +44,6 @@ export const logout = () => dispatch => (
     .then(() => dispatch(logoutCurrentUser()))
 )
 
-// export const clearErrors = () => dispatch => ({
+// export const removeSessionErrors = () => dispatch => {
 //     dispatch(removeErrors());
-// })
+// }

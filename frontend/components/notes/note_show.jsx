@@ -1,5 +1,6 @@
 import React from "react";
 
+
 class NoteShow extends React.Component{
     constructor(props) {
         super(props)
@@ -12,6 +13,7 @@ class NoteShow extends React.Component{
 
 
 
+
     componentDidMount() {
         this.props.fetchNotes();
     }
@@ -21,11 +23,14 @@ class NoteShow extends React.Component{
     }
 
     render(){
+        console.log("hello");
         return(
             <div>
             <div>
                 <input type="text"  placeholder="Title"  value={this.state.title} onChange={this.update('title')} />
+
                 <button className="delete-button"  onClick={this.handleDelete} > Delete </button> 
+
             </div>
             
         </div>
