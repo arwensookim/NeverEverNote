@@ -51,7 +51,7 @@ class SessionForm extends React.Component{
                 <div className="form-box">
     
                     <img className="logo" src={window.logoURL} width="130px"/>
-                    <h2 className="appName">NeverEverNote</h2>
+                    <h2 className="appName"> <Link to="/">NeverEverNote</Link> </h2>
                     <div className="errors">{this.renderErrors()}</div>
 
                     <form className="inner-form" onSubmit={this.handleSubmit}>

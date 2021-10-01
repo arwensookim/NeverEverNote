@@ -39,9 +39,17 @@
         justify-content: center;
         font-family: 'Courier New', Courier, monospace;
         font-size: 40px;
+        font-weight: bold;
         margin-top: 10px;
+        margin-bottom: 50px;
         margin-left: 50px;
         margin-right: 50px;
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        
     }
 
     .logo {
@@ -132,8 +140,10 @@
 
     }
     .switching{
-        color: green;
+        margin-top: 10px;
         text-decoration: none;
+        color: green;
+        font-family: Arial, Helvetica, sans-serif;
     }
 
     button {
@@ -149,4 +159,5 @@
     color: red;
     text-decoration: none;
     text-align: center;
+    margin: 10px;
 }
