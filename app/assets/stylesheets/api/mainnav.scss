@@ -60,16 +60,24 @@
 .nav-list {
     text-decoration: none;
     list-style-type: none;
-    margin: 10px;
 
     a {
+        display: flex;
         text-decoration: none;
         color: #a6a6a6;
         font-size: 18px;
-        margin: 20px;
-        padding-left: 15px;
-        // padding: 7px 10px 7px 20px;
+        padding: 10px;
+
         align-content: space-around;
+
+    }
+
+    a:hover {
+        background-color: rgb(39, 89, 39);
+    }
+
+    .fas {
+        margin-right: 5px;
     }
 
 }

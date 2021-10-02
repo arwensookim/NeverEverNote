@@ -23,7 +23,6 @@ class NoteShow extends React.Component{
     }
 
     render(){
-        console.log("hello");
         return(
             <div>
             <div>
@@ -32,7 +31,6 @@ class NoteShow extends React.Component{
                 <button className="delete-button"  onClick={this.handleDelete} > Delete </button> 
 
             </div>
-            
         </div>
         )
     }

@@ -51,9 +51,8 @@ class mainNav extends React.Component {
                 </div>
                 <div className="links">
                     <ul className="nav-list">
-                        <Link to='/notes'> <i className="fas fa-sticky-note"></i> Notes</Link>
-                        <br/>
-                        <Link to='/notebooks'><i className="fas fa-book fa-fw"></i> Notebooks </Link>
+                        <Link to='/notes'> <i className="fas fa-sticky-note"></i> Notes </Link>
+                        <Link to='/notebooks'><i className="fas fa-book"></i> Notebooks </Link>
 
                     </ul>
                 </div>

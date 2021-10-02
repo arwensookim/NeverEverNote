@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 
 import NotesIndexContainer from "../notes/notes_index_container";
@@ -12,7 +12,7 @@ const Main = () => {
         <div className="main-page">
             <Route path="/notes" component={mainNavContainer}/>
             <Route path="/notes" component={NotesIndexContainer}/>
-
+            <Route path="/notes/:noteId" component={NoteShowContainer} />
         </div>
     )
 }
