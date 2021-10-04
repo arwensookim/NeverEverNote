@@ -44,8 +44,8 @@ class NoteShow extends React.Component{
                 </div>
 
                 <div className="edit-note">
-                    <input className="title-update" type="text" value={this.state.title} onChange={this.update("title")} />
-                    <textarea className="body-update"  value={this.state.body} onChange={this.update("body")}/>
+                    <input className="title-update" type="text" value={this.state.title} onChange={this.update("title")} placeholder="Title" />
+                    <textarea className="body-update"  value={this.state.body} onChange={this.update("body")} placeholder="write your body..."/>
                 </div>
                
             </div>

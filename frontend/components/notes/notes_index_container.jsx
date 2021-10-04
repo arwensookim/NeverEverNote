@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-
+import {withRouter} from "react-router-dom"
 import NotesIndex from "./notes_index";
 import { fetchNotes , deleteNote} from "../../actions/note_actions";
 
@@ -20,4 +20,4 @@ const mDTP = dispatch => ({
     logout: () => dispatch(logout()),
 })
 
-export default connect(mSTP, mDTP)(NotesIndex);
+export default withRouter(connect(mSTP, mDTP)(NotesIndex));

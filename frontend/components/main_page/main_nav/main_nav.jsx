@@ -10,7 +10,13 @@ class mainNav extends React.Component {
 
     handleCreateNote() {
 
-        let notebookId = null;
+        let notebookId = 4;
+        // if (this.props.match.params.notebookId) {
+        //     notebookId = this.props.match.params.notebookId;
+        // } else  {
+        //     notebookId = null;
+        // }
+
         let newNote = {
             title: "",
             body: "",
@@ -24,6 +30,8 @@ class mainNav extends React.Component {
     render() {
         const {currentUser} = this.props;
         // if (!currentUser) return null;
+
+        
         return(
             <div className="main-nav">
                 <div className="greeting">

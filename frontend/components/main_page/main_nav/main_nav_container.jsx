@@ -5,8 +5,9 @@ import { logout } from "../../../actions/session_actions";
 import { createNote } from "../../../actions/note_actions";
 import mainNav from "./main_nav";
 
-const mSTP = state => ({
+const mSTP = (state, ownProps) => ({
     currentUser: state.entities.users[state.session.id],
+    
     // currentUser: Object.values(state.entities.users)[state.session.id]
 })
 

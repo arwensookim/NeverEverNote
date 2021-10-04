@@ -23,7 +23,7 @@ class Api::NotesController < ApplicationController
     end
 
     def update
-        @note = Note.find_by(id: params[:id])
+        @note = Note.find_by(id: params[:note][:id])
 
         if @note.update(note_params)
             render :show

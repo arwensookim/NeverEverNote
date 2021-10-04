@@ -7,11 +7,17 @@ class User < ApplicationRecord
   validates_uniqueness_of :username, :session_token
   validates :password, length: {minimum: 6}, allow_nil: true
 
+  after_create :createNotebook
   after_initialize :ensure_session_token
 
   has_many :notes,
     foreign_key: :user_id,
     class_name: :Note
+
+  def createNotebook
+    notebook = Notebook.new({title: "Default",  user_id: self.id})
+    notebook.save
+  end
 
   # Class method for finding a user ONLY if we have the correct username and password
   def self.find_by_credentials(username, password)
