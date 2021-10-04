@@ -1,8 +1,13 @@
 import { connect } from "react-redux";
-import NoteShow from "./note_show";
 
-const mSTP = ({entities: {notes}}, ownProps) => ({
-    note: notes[ownProps.match.params.noteId]
+import NoteShow from "./note_show";
+import { fetchNotes, fetchNote, updateNote,deleteNote } from "../../actions/note_actions";
+
+
+const mSTP = (state, ownProps) => ({
+    note: state.entities.notes[ownProps.match.params.noteId],
+    notes: state.entities.notes,
+    noteId: ownProps.match.params.noteId
 })
 
 const mDTP = dispatch => ({

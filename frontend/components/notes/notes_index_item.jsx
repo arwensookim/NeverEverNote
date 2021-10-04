@@ -1,36 +1,37 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-class NotesItem extends React.Component{
-    constructor(props) {
-        super(props);
-
-    }
+import NoteShow from "./note_show";
+import note_show_container from "./note_show_container";
 
 
-    render() {
-        let url = `/notes/${this.props.note.id}`
-        let title;
+const NotesIndexItem = props => {
 
-        if (this.props.note.title === "") {
-            title = "Untitled";
-        } else {
-            title = this.props.note.title;
-        }
 
-        if (!this.props.note) return null;
+    // let title;
 
-        return(
-            <Link to={url}>
+    // if (props.note.title === "") {
+    //     title = "Untitled";
+    // } else {
+    //     title = props.note.title;
+    // }
+
+    // if (!props.note) return null;
+
+    return(
+        // <div className="note-item">
+            <Link className="note-item" to={`${props.url}${props.note.id}`} >
                 <li className="notes-lists">
-                    <div className="note-title">{this.props.note.title}</div>
-                    <div className="note-body">{this.props.note.body}</div>
+                    <div className="note-title">{props.note.title}</div>
+                    <div className="note-body">{props.note.body}</div>
                 </li>
             </Link>
+        // {/* </div> */}
 
 
-        )
-    }
+
+
+    )
+    
 }
 
-export default NotesItem;
+export default NotesIndexItem;

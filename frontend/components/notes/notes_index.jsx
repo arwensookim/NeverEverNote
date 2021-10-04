@@ -1,6 +1,6 @@
 import React from "react";
-import NotesForm from "./notes_form";
-import NotesIndexItem from "./notes_index_item";
+
+import NotesIndexList from "./notes_index_lists";
 
 class NotesIndex extends React.Component{
     constructor(props) {
@@ -13,18 +13,16 @@ class NotesIndex extends React.Component{
     }
 
     render() {
-        const {notes, deleteNote } = this.props;
+        const {notes, history, currentUser, createNote, fetchNotes, url } = this.props;
         return(
-            <div>
+            <div className="notes-index">
                 <div className="notes-index-header">
                     <h2>Notes</h2>
                     <div className="notes-count">{this.props.notes.length} notes</div>
                 </div>
                 <div className="notes-content">
                     <ul>
-                        {notes.map( note => (
-                            <NotesIndexItem key={note.id} note={note} history={this.props.history} deleteNote={deleteNote} />
-                        ))}
+                        <NotesIndexList url={url}  notes={notes} history={history} currentUser={currentUser} createNote={createNote} fetchNotes={fetchNotes}/>
                     </ul>
                 </div>
 

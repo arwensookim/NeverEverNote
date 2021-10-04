@@ -5,7 +5,7 @@ import Root from "./components/root"
 // import {signup, login} from "./util/session_api_util"
 import { signup, login } from "./actions/session_actions"
 import { fetchNotebook } from "./actions/notebook_actions";
-import { fetchNotes } from "./actions/note_actions";
+import { createNote, fetchNotes } from "./actions/note_actions";
 
  
 document.addEventListener("DOMContentLoaded", () => {
@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.signup = signup;
     window.fetchNotebook = fetchNotebook;
     window.fetchNotes = fetchNotes;
+    window.createNote = createNote;
     // TESTING END
 
     const root = document.getElementById("root");

@@ -9,34 +9,21 @@ class mainNav extends React.Component {
     }
 
     handleCreateNote() {
-        let notebookId;
 
-        if(this.props.match.params.notebookId) {
-            notebookId = this.props.match.params.notebookId;
-        } else {
-            notebookId = null;
-        }
-
+        let notebookId = null;
         let newNote = {
             title: "",
             body: "",
             user_id: this.props.currentUser.id,
             notebook_id: notebookId
-        };
-
+        }
         this.props.createNote(newNote)
-            .then( res => {
-                if (this.props.match.params.notebookId) {
-                    this.props.history.push(`/notebooks/${this.props.match.params.notebookId}/notes/${res.note.id}`);
-                } else {
-                    this.props.history.push(`/notes/${res.note.id}`);
-                }
-            })
+            .then( res => this.props.history.push(`/notes/${res.note.id}`))
     }
 
     render() {
         const {currentUser} = this.props;
-        if (!currentUser) return null;
+        // if (!currentUser) return null;
         return(
             <div className="main-nav">
                 <div className="greeting">
@@ -49,6 +36,7 @@ class mainNav extends React.Component {
                         <div className="plus-icon">+</div><div>Create Note</div>
                         </button>
                 </div>
+
                 <div className="links">
                     <ul className="nav-list">
                         <Link to='/notes'> <i className="fas fa-sticky-note"></i> Notes </Link>

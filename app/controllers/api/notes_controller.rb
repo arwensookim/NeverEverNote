@@ -18,12 +18,12 @@ class Api::NotesController < ApplicationController
         if @note.save
             render :show
         else
-            render json: @note.errors.full_messages, status: 422
+            render json: @note.errors.full_messages
         end
     end
 
     def update
-        @note = Note.find(params[:id])
+        @note = Note.find_by(id: params[:id])
 
         if @note.update(note_params)
             render :show

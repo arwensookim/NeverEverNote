@@ -1,8 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import NoteIndexItem from "./notes_index_item"
 
-class NotesList extends React.Component {
+class NotesIndexList extends React.Component {
     constructor(props) {
         super(props);
         this.handleNewNote = this.handleNewNote.bind(this)
@@ -50,7 +50,6 @@ class NotesList extends React.Component {
         //     return (
         //         <ul>
         //             <div className="notes-list-firstnote">
-        //             {/* <img src={window.notePen} className="notes-list-img"/> */}
         //             Create your first note
         //             </div>
         //             <div className="notes-list-clickme">
@@ -63,11 +62,12 @@ class NotesList extends React.Component {
         // }
 
         return(
+
             <ul>
-                {this.props.notes.map(note => <NoteIndexItem note={note} key={note.id} />)}
+                {this.props.notes.map((note) => <NoteIndexItem note={note} key={note.id} url={this.props.url} />)}
             </ul>
         )
     }
 }
 
-export default NotesList;
+export default NotesIndexList;
