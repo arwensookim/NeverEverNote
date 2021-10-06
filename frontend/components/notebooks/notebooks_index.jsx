@@ -93,11 +93,11 @@ class NotebooksIndex extends React.Component{
             <div className="notebooks-index" >
                 <div className="notebook-header">
                     <h1>Notebooks</h1>
-                    <p>{this.props.notebooks.length} Notebooks</p>
                 </div>
 
-                <div className="add-notebook-button" >
-                    <button onClick={this.handleOpenNotebookModal} className="createNotebook-button">Create Notebook</button>
+                <div className="notebook-subheader" >
+                    <p>{this.props.notebooks.length} Notebooks</p>
+                    <button onClick={this.handleOpenNotebookModal} className="createNotebook-button"><i className="fas fa-book"></i>Create Notebook</button>
                 </div>
 
                 

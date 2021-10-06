@@ -13,6 +13,7 @@ const Main = () => {
         <div className="main-page">
             <Switch>
                 <Route path="/notebooks/:notebookId" component={mainNavContainer}/>
+                <Route path="/notebooks" component={mainNavContainer}/>
                 <Route path="/notes" component={mainNavContainer}/>
             </Switch>
             {/* <Route path="/notes" component={mainNavContainer}/> */}

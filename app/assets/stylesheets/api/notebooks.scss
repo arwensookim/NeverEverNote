@@ -1,0 +1,48 @@
+.notebooks-index {
+    height: 100vh;
+    width: 100%;
+    grid-column-start: 5;
+    grid-column-end: 5;
+    padding: 30px;
+
+    .notebook-header {
+        height: 50px;
+
+        h1 {
+            font-size: 30px;
+            font-weight: 300;
+        }
+
+    }
+
+    .notebook-subheader {
+
+
+        p {
+            color: rgb(95, 94, 94);
+        }
+
+        display: flex;
+        color: green;
+        font-size: 20px;
+        // align-content: space-between;
+        justify-content: space-between;
+
+        .createNotebook-button {
+            display: flex;
+            // justify-content: center;
+            line-height: 20px;
+
+            &:hover {
+                color: rgb(44, 64, 44);
+            }
+        }
+    }
+
+    .notebooks-index-list {
+        display: flex;
+        border-bottom: 1px solid black;
+        justify-content: space-evenly;
+    }
+
+}
