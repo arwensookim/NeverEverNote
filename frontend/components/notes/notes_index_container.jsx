@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import {withRouter} from "react-router-dom"
 import NotesIndex from "./notes_index";
 import { fetchNotes , deleteNote} from "../../actions/note_actions";
+import { fetchNotebooks } from "../../actions/notebook_actions";
 
 const mSTP = state => ({
     

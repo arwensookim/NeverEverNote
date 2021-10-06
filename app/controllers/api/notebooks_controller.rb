@@ -1,7 +1,7 @@
 class Api::NotebooksController < ApplicationController
 
     def index
-        @notebooks = Notebook.where(user_id: params[:user_id])
+        @notebooks = Notebook.where(user_id: current_user.id)
         # @notebooks = @current_user.notebooks
         render :index
     end

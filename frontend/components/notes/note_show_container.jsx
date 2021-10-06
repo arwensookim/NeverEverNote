@@ -7,7 +7,8 @@ import { fetchNotes, fetchNote, updateNote,deleteNote } from "../../actions/note
 const mSTP = (state, ownProps) => ({
     note: state.entities.notes[ownProps.match.params.noteId],
     notes: state.entities.notes,
-    noteId: ownProps.match.params.noteId
+    noteId: ownProps.match.params.noteId,
+    notebooks: Object.values(state.entities.notebooks)
 })
 
 const mDTP = dispatch => ({

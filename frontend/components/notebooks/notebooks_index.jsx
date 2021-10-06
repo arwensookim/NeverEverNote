@@ -102,8 +102,12 @@ class NotebooksIndex extends React.Component{
 
                 
                 <ul className="notebooks-index-list">
-                    <li><h3>TITLE</h3></li>
-                    <li><h3>CREATED BY</h3></li>
+                    <li>
+                        <div className="notebook-list-title"><h3>TITLE</h3></div>
+                        <div className="notebook-list-created-by"><h3>CREATED BY</h3></div>
+                        <div className="notebook-list-updated"></div>
+                        <div className="notebook-list-action-button"></div>
+                    </li>
 
                     {this.props.notebooks.map( notebook => (
                         <li key={notebook.id}>
@@ -114,14 +118,20 @@ class NotebooksIndex extends React.Component{
                             <div className="notebook-list-created-by">
                                 {this.props.currentUser.username}
                             </div>
-                            <button className="rename-title" onClick={ () =>{this.handleOpenRenameModal(notebook)} }>Edit Title</button>
-                            <button className="delete-notebook" onClick={ () => { this.handleDeleteNotebook(notebook.id)}}>Delete</button>
+
+                            <div className="notebook-list-updated">
+
+                            </div>
+                            <div className="notebook-list-action-button">
+                                <button className="rename-button" onClick={ () =>{this.handleOpenRenameModal(notebook)} }>Edit Title</button>
+                                <button className="delete-notebook-button" onClick={ () => { this.handleDeleteNotebook(notebook.id)}}>Delete</button>
+                            </div>
                         </li>
                     ))}
                 </ul>
 
-                <Modal isOpen={this.state.modal}>
-                    <div>
+                <Modal isOpen={this.state.modal} className="notebook-modal" ariaHideApp={false} >
+                    <div className="rename-modal">
                         <h2 className="modal-header">Rename Notebook Title</h2>
                         <label className="modal-title">Title</label>
                         <input type="text" className="rename-title-input" placeholder="Title" value={this.state.renamedNotebook} onChange={this.update('renamedNotebook')} />
@@ -132,8 +142,8 @@ class NotebooksIndex extends React.Component{
                     </div>
                 </Modal>
 
-                <Modal isOpen={this.state.notebookModal}>
-                    <div>
+                <Modal isOpen={this.state.notebookModal} className="notebook-modal" ariaHideApp={false} >
+                    <div className="create-modal">
                         <h2>Create New Notebook</h2>
                         <label className="create-notebook-title-modal">Title</label>
                         <input type="text" className="create-notebook-input-modal" placeholder="Title" value={this.state.title} onChange={this.update('title')}/>
