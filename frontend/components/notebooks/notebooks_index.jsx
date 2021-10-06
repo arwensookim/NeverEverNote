@@ -8,28 +8,28 @@ class NotebooksIndex extends React.Component{
     constructor(props) {
         super(props) 
         this.state = {
-            title: 'Untitled',
+            title: '',
             modal: false,
             notebookModal: false,
             notebookRename: null,
             renamedNotebook: '',
         }
 
-        this.handleCreateNotebook = this.handleCreateNotebook.bind(this);
         this.handleDeleteNotebook = this.handleDeleteNotebook.bind(this);
-        this.handleEditTitle = this.handleEditTitle.bind(this);
+        this.handleCreateNotebook = this.handleCreateNotebook.bind(this);
+        this.handleRename = this.handleRename.bind(this);
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
         this.handleOpenNotebookModal = this.handleOpenNotebookModal.bind(this);
         this.handleCloseNotebookModal = this.handleCloseNotebookModal.bind(this);
-        this.handleRename = this.handleRename.bind(this);
+        this.handleOpenRenameModal = this.handleOpenRenameModal.bind(this);
     }
 
     handleDeleteNotebook(notebookId) {
-        // this.props.deleteNotebook(notebookId);
-        if (this.state.title !== "Default") {
-            this.props.deleteNotebook(notebookId);
-        }
+        this.props.deleteNotebook(notebookId);
+        // if (this.state.title !== "Default") {
+        //     this.props.deleteNotebook(notebookId);
+        // }
     }
 
     handleCreateNotebook() {
@@ -67,7 +67,7 @@ class NotebooksIndex extends React.Component{
     }
 
     handleOpenNotebookModal() {
-        this.setState({notebookmModal: true})
+        this.setState({notebookModal: true})
     }
 
     handleCloseNotebookModal() {
@@ -82,21 +82,22 @@ class NotebooksIndex extends React.Component{
 
 
     render() {
-        let aNotebook;
-        if(this.props.noteboks.length <= 1) {
-            aNotebook = "notebook";
-        } else {
-            aNotebook = "notebooks"
-        }
+        // console.log(this.props.notebooks);
+        // let aNotebook;
+        // if(this.props.noteboks.length <= 1) {
+        //     aNotebook = "notebook";
+        // } else {
+        //     aNotebook = "notebooks"
+        // }
         return(
             <div className="notebooks-index" >
                 <div className="notebook-header">
                     <h1>Notebooks</h1>
-                    <p>{this.props.notebooks.length} {aNotebook}</p>
+                    <p>{this.props.notebooks.length} Notebooks</p>
                 </div>
 
                 <div className="add-notebook-button" >
-                    <button onClick={this.handleOpenNotebookModal} className="createNotebook-button">New Notebook</button>
+                    <button onClick={this.handleOpenNotebookModal} className="createNotebook-button">Create Notebook</button>
                 </div>
 
                 
