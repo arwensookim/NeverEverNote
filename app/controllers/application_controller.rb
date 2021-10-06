@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-      # This will be on the assessment
+
   #protect_from_forgery with: :exception
   #skip_forgery_protection
   skip_before_action :verify_authenticity_token
@@ -19,6 +19,7 @@ class ApplicationController < ActionController::Base
 
     # Reset the session
     session[:session_token] = nil
+    @current_user = nil
   end
 
   def current_user

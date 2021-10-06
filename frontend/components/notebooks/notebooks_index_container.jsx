@@ -5,7 +5,7 @@ import NotebooksIndex from "./notebooks_index";
 
 const mSTP = state => ({
     currentUser: state.entities.users[state.session.id],
-    notebooks: Object.vaalue(notebooks)
+    notebooks: Object.values(state.entities.notebooks)
 })
 
 const mDTP = dispatch => ({
