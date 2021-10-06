@@ -1,22 +1,35 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Modal from "react-modal";
+
+
 
 class NotebooksIndex extends React.Component{
     constructor(props) {
         super(props) 
         this.state = {
             title: 'Untitled',
+            modal: false,
+            notebookModal: false,
             notebookRename: null,
-            editNotebookTitle: '',
+            renamedNotebook: '',
         }
 
         this.handleCreateNotebook = this.handleCreateNotebook.bind(this);
         this.handleDeleteNotebook = this.handleDeleteNotebook.bind(this);
         this.handleEditTitle = this.handleEditTitle.bind(this);
+        this.handleOpenModal = this.handleOpenModal.bind(this);
+        this.handleCloseModal = this.handleCloseModal.bind(this);
+        this.handleOpenNotebookModal = this.handleOpenNotebookModal.bind(this);
+        this.handleCloseNotebookModal = this.handleCloseNotebookModal.bind(this);
+        this.handleRename = this.handleRename.bind(this);
     }
 
     handleDeleteNotebook(notebookId) {
-        this.props.deleteNotebook(notebookId);
+        // this.props.deleteNotebook(notebookId);
+        if (this.state.title !== "Default") {
+            this.props.deleteNotebook(notebookId);
+        }
     }
 
     handleCreateNotebook() {
@@ -26,13 +39,15 @@ class NotebooksIndex extends React.Component{
         }
 
         this.props.createNotebook(newNotebook);
+        this.handleCloseNotebookModal();
 
     }
 
-    handleEditTitle() {
-        let editNotebook = this.state.notebookRename;
-        editNotebook.title = this.state.editNotebookTitle;
-        this.props.updateNotebook(editNotebook);
+    handleRename() {
+        let notebook = this.state.notebookRename;
+        notebook.title = this.state.renamedNotebook;
+        this.props.updateNotebook(notebook);
+        this.handleCloseModal();
     }
 
     update(field) {
@@ -43,17 +58,45 @@ class NotebooksIndex extends React.Component{
         this.props.fetchNotebooks();
     }
 
+    handleOpenModal() {
+        this.setState( {modal: true})
+    }
+
+    handleCloseModal() {
+        this.setState({modal: false})
+    }
+
+    handleOpenNotebookModal() {
+        this.setState({notebookmModal: true})
+    }
+
+    handleCloseNotebookModal() {
+        this.setState({notebookModal: false})
+    }
+
+    handleOpenRenameModal(notebook) {
+        this.handleOpenModal();
+
+        this.setState({notebookRename: notebook, renamedNotebook: notebook.title})
+    }
+
 
     render() {
+        let aNotebook;
+        if(this.props.noteboks.length <= 1) {
+            aNotebook = "notebook";
+        } else {
+            aNotebook = "notebooks"
+        }
         return(
             <div className="notebooks-index" >
                 <div className="notebook-header">
                     <h1>Notebooks</h1>
-                    <p>{this.props.notebooks.length} notebooks</p>
+                    <p>{this.props.notebooks.length} {aNotebook}</p>
                 </div>
 
                 <div className="add-notebook-button" >
-                    <button onClick={this.handleCreateNotebook}>New Notebook</button>
+                    <button onClick={this.handleOpenNotebookModal} className="createNotebook-button">New Notebook</button>
                 </div>
 
                 
