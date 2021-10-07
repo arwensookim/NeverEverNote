@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { LOGOUT_CURRENT_USER } from "../../actions/session_actions";
 
 
 class NoteShow extends React.Component{
@@ -9,6 +10,7 @@ class NoteShow extends React.Component{
             id: null,
             title: '',
             body: '',
+            notebook_id: null,
         }
 
         this.deleteNote = this.deleteNote.bind(this);

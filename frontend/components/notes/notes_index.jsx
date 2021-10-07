@@ -6,12 +6,14 @@ class NotesIndex extends React.Component{
     constructor(props) {
         super(props)
 
+
     }
 
     componentDidMount() {
         this.props.fetchNotebooks();
         this.props.fetchNotes();
     }
+
 
     render() {
         const {notes, history, currentUser, createNote, fetchNotes, url } = this.props;

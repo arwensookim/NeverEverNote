@@ -10,21 +10,39 @@ class mainNav extends React.Component {
 
     handleCreateNote() {
 
-        let notebookId = 4;
-        // if (this.props.match.params.notebookId) {
-        //     notebookId = this.props.match.params.notebookId;
-        // } else  {
-        //     notebookId = null;
-        // }
+        let notebookId;
+        if (this.props.match.params.notebookId) {
+            notebookId = this.props.match.params.notebookId;
 
-        let newNote = {
-            title: "",
-            body: "",
-            user_id: this.props.currentUser.id,
-            notebook_id: notebookId
+            let newNote = {
+                title: "",
+                body: "",
+                user_id: this.props.currentUser.id,
+                notebook_id: notebookId
+            }
+
+            this.props.createNote(newNote)
+                .then( res => this.props.history.push(`/notes/${res.note.id}`))
+        } else  {
+            notebookId = this.props.notebooks[0].id;
+
+            let newNote = {
+                title: "",
+                body: "",
+                user_id: this.props.currentUser.id,
+                notebook_id: notebookId
+            }
+
+            this.props.createNote(newNote)
+                .then((res) => this.props.history.push(`/notes/${res.note.id}`))
         }
-        this.props.createNote(newNote)
-            .then( res => this.props.history.push(`/notes/${res.note.id}`))
+    
+
+    }
+
+    componentDidMount() {
+        this.props.fetchNotebooks();
+        this.props.fetchNotes();
     }
 
     render() {

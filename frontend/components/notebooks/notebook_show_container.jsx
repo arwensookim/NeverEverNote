@@ -1,13 +1,15 @@
 import { connect } from "react-redux";
-import NotesIndex from "../notes/notes_index";
+import NotebookShow from "./notebook_show";
 import { fetchNotebooks, fetchNotebook } from "../../actions/notebook_actions";
 import { fetchNotes, createNote } from "../../actions/note_actions";
 
 
 const mSTP = (state, ownProps) => ({
-    notebooks: state.entities.notebooks,
+    notebooks: Object.values(state.entities.notebooks),
+    notebook: state.entities.notebooks[ownProps.match.params.notebookId],
     notes: Object.values(state.entities.notes),
-    currentUser: state.entities.users[state.session.id]
+    currentUser: state.entities.users[state.session.id],
+    currentNotebookId: ownProps.match.params.notebookId,
 })
 
 const mDTP = (dispatch, ownProps) => ({
@@ -17,4 +19,4 @@ const mDTP = (dispatch, ownProps) => ({
     createNote: note => dispatch(creatNote(note))
 })
 
-export default connect(mSTP, mDTP)(NotesIndex)
+export default connect(mSTP, mDTP)(NotebookShow)

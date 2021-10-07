@@ -2,16 +2,19 @@ import { connect } from "react-redux";
 
 import NoteShow from "./note_show";
 import { fetchNotes, fetchNote, updateNote,deleteNote } from "../../actions/note_actions";
+import { fetchNotebooks } from "../../actions/notebook_actions";
 
 
 const mSTP = (state, ownProps) => ({
     note: state.entities.notes[ownProps.match.params.noteId],
     notes: state.entities.notes,
     noteId: ownProps.match.params.noteId,
-    notebooks: Object.values(state.entities.notebooks)
+    notebooks: Object.values(state.entities.notebooks),
+    currentUser: state.entitties.users[state.session.id]
 })
 
 const mDTP = dispatch => ({
+    fetchNotebooks: () => dispatch(fetchNotebooks()),
     fetchNotes: () => dispatch(fetchNotes()),
     fetchNote: noteId => dispatch(fetchNote(noteId)),
     updateNote: note => dispatch(updateNote(note)),

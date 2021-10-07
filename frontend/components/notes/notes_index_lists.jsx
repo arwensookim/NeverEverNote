@@ -13,7 +13,7 @@ class NotesIndexList extends React.Component {
     }
 
     handleNewNote() {
-        let notebookId = 1;
+        let notebookId = null;
 
         let newNote = {
             title: "",
