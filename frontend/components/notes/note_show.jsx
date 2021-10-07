@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { LOGOUT_CURRENT_USER } from "../../actions/session_actions";
+
 
 
 class NoteShow extends React.Component{
@@ -54,6 +54,7 @@ class NoteShow extends React.Component{
 
                 <div className="edit-note">
                     <input className="title-update" type="text" value={this.state.title} onChange={this.update("title")} placeholder="Title" />
+                    {/* <useQuill placeholder="Start Writing..."  value={this.state.body} onChange={this.update("body")}/> */}
                     <textarea className="body-update"  value={this.state.body} onChange={this.update("body")} placeholder="write your body..."/>
                 </div>
                
@@ -63,3 +64,4 @@ class NoteShow extends React.Component{
 }
 
 export default NoteShow;
+

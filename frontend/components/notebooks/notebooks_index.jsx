@@ -26,10 +26,10 @@ class NotebooksIndex extends React.Component{
     }
 
     handleDeleteNotebook(notebookId) {
-        this.props.deleteNotebook(notebookId);
-        // if (this.state.title !== "Default") {
-        //     this.props.deleteNotebook(notebookId);
-        // }
+        // this.props.deleteNotebook(notebookId);
+        if (this.state.title !== "Default") {
+            this.props.deleteNotebook(notebookId);
+        }
     }
 
     handleCreateNotebook() {

@@ -4,6 +4,8 @@ import * as NotebookAPIUtil from '../util/notebook_api_util';
 export const RECEIVE_NOTEBOOKS = 'RECEIVE_NOTEBOOKS'; 
 export const RECEIVE_NOTEBOOK = 'RECEIVE_NOTEBOOK';
 export const REMOVE_NOTEBOOK = 'REMOVE_NOTEBOOK';
+export const RECEIVE_NOTEBOOK_ERRORS = 'RECEIVE_NOTEBOOK_ERRORS';
+export const REMOVE_NOTEBOOK_ERRORS = 'REMOVE_NOTEBOOK_ERRORS'; 
 
 
 const receiveNotebooks = (notebooks) => ({
@@ -22,6 +24,15 @@ const removeNotebook = (notebookId) => ({
     type: REMOVE_NOTEBOOK,
     notebookId
 });
+
+const receiveNotebookErros = errors => ({
+    type: RECEIVE_NOTEBOOK_ERRORS,
+    errors
+})
+
+const removeNotebookErrors = () => ({
+    type: REMOVE_NOTEBOOK_ERRORS,
+})
 
 // thunk action creater
 
