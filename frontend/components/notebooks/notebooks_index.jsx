@@ -43,6 +43,16 @@ class NotebooksIndex extends React.Component{
 
     }
 
+    renderErrors() {
+        return(
+            <div>
+                {this.props.errors.map( (error, i) => (
+                    <p key={`error- ${i}`}>{error}</p>
+                ))}
+            </div>
+        )
+    }
+
     handleRename() {
         let notebook = this.state.notebookRename;
         notebook.title = this.state.renamedNotebook;
@@ -123,6 +133,7 @@ class NotebooksIndex extends React.Component{
 
                             </div>
                             <div className="notebook-list-action-button">
+                                <div className="errors">{this.renderErrors()}</div>
                                 <button className="rename-button" onClick={ () =>{this.handleOpenRenameModal(notebook)} }>Edit Title</button>
                                 <button className="delete-notebook-button" onClick={ () => { this.handleDeleteNotebook(notebook.id)}}>Delete</button>
                             </div>

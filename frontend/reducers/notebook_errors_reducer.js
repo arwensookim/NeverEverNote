@@ -14,3 +14,5 @@ const notebookErrorsReducer = (oldState = [], action) => {
             return oldState;
     }
 }
+
+export default notebookErrorsReducer;
