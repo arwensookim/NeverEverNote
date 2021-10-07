@@ -39,10 +39,17 @@ class NoteShow extends React.Component{
     }
 
     render(){
+
+        let url;
+        if(this.props.match.params.notebookId) {
+            url = `/notebooks/${this.props.match.params.notebookId}`;
+        } else {
+            url = "/notes"
+        }
         return(
             <div className="note-update">
                 <div className="note-delete">
-                    <Link to='/notes' onClick={this.deleteNote}>Delete</Link>
+                    <Link to={url} onClick={this.deleteNote}>Delete</Link>
                 </div>
 
                 <div className="edit-note">

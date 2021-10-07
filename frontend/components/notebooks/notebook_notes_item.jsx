@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const NotebookNotesItem = props => {
-    let url = `/notebooks/${props.notebookId}/${props.note.id}}`
+    let url = `/notebooks/${props.currentNotebookId}/notes/${props.note.id}`
     return (
         <Link to={url}>
             <li className="notes-lists">

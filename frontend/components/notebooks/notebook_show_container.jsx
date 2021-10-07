@@ -10,6 +10,7 @@ const mSTP = (state, ownProps) => ({
     notes: Object.values(state.entities.notes),
     currentUser: state.entities.users[state.session.id],
     currentNotebookId: ownProps.match.params.notebookId,
+
 })
 
 const mDTP = (dispatch, ownProps) => ({

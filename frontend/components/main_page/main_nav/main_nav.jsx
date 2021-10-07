@@ -22,7 +22,7 @@ class mainNav extends React.Component {
             }
 
             this.props.createNote(newNote)
-                .then( res => this.props.history.push(`/notebooks/${notebookId}/${res.note.id}`))
+                .then( res => this.props.history.push(`/notebooks/${notebookId}/notes/${res.note.id}`))
         } else  {
             notebookId = this.props.notebooks[0].id;
 

@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
+Notebook.destroy_all
+Note.destroy_all
 
 demo = User.create!(username: "demouser", password: "password")
 arwen = User.create!(username: "miknewra", password: "password123")
@@ -23,14 +25,9 @@ note1 = Note.create!(
     notebook_id: notebook1.id
 )
 
-note2 = Note.create!(
-    title: 'Danny is Smart',
-    body: 'Danny helped me debugging a lot and it is not working!!',
-    user_id: arwen.id,
-    notebook_id: notebook1.id
-)
 
-note3 = Note.create!(
+
+note2 = Note.create!(
     title: 'hello',
     body: 'hellohello',
     user_id: demo.id,

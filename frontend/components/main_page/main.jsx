@@ -13,15 +13,15 @@ const Main = () => {
     return (
         <div className="main-page">
             <Switch>
-                <Route path="/notebooks" component={mainNavContainer}/>
-                <Route path="/notes" component={mainNavContainer}/>
+                <Route path="/notebooks/:notebookId" component={mainNavContainer}/>
+                <Route component={mainNavContainer}/>
             </Switch>
             {/* <Route path="/notes" component={mainNavContainer}/> */}
             <Route exact path="/notebooks" component={NotebookIndexContainer} />
+            <Route path="/notebooks/:notebookId" component={NotebookShowContainer}/>
+            <Route path="/notebooks/:notebookId/notes/:noteId" component={NoteShowContainer}/>
             <Route path="/notes" component={NotesIndexContainer}/>
             <Route path="/notes/:noteId" component={NoteShowContainer} />
-            <Route path="/notebooks/:notebookId/notes/:noteId" component={NoteShowContainer}/>
-            <Route path="/notebooks/:notebookId" component={NotebookShowContainer}/>
         </div>
     )
 }
