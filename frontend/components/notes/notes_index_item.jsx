@@ -16,13 +16,13 @@ const NotesIndexItem = props => {
     // }
 
     // if (!props.note) return null;
-
+    const body = props.note.body.slice(0,150).replace(/<[^>]*>?/gm, '');
     return(
         // <div className="note-item">
             <Link className="note-item" to={`${props.url}${props.note.id}`} >
                 <li className="notes-lists">
                     <div className="note-title">{props.note.title}</div>
-                    <div className="note-body">{props.note.body}</div>
+                    <div className="note-body">{body}</div>
                 </li>
             </Link>
         // {/* </div> */}

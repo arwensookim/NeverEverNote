@@ -60,7 +60,7 @@ class NotesIndexList extends React.Component {
         //         </ul>
         //     )
         // }
-        console.log(this.props.notes)
+
         return(
 
             <ul>

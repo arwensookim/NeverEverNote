@@ -25,10 +25,13 @@ class NotebooksIndex extends React.Component{
         this.handleOpenRenameModal = this.handleOpenRenameModal.bind(this);
     }
 
+
     handleDeleteNotebook(notebookId) {
         // this.props.deleteNotebook(notebookId);
         if (this.state.title !== "Default") {
             this.props.deleteNotebook(notebookId);
+        } else {
+            window.alert("You can't delete Default Notebook")
         }
     }
 
@@ -119,7 +122,7 @@ class NotebooksIndex extends React.Component{
                         <div className="notebook-list-action-button"></div>
                     </li>
 
-                    {this.props.notebooks.map( notebook => (
+                    {this.props.notebooks.map( (notebook, i) => (
                         <li key={notebook.id}>
                             <div className="notebook-list-title">
                                 <Link to={`/notebooks/${notebook.id}/notes`}>{notebook.title}</Link>
@@ -132,11 +135,11 @@ class NotebooksIndex extends React.Component{
                             <div className="notebook-list-updated">
 
                             </div>
+                            {i === 0 ? <div className="notebook-list-action-button">Cannot Modify</div> :  
                             <div className="notebook-list-action-button">
-                                <div className="errors">{this.renderErrors()}</div>
                                 <button className="rename-button" onClick={ () =>{this.handleOpenRenameModal(notebook)} }>Edit Title</button>
                                 <button className="delete-notebook-button" onClick={ () => { this.handleDeleteNotebook(notebook.id)}}>Delete</button>
-                            </div>
+                            </div>}
                         </li>
                     ))}
                 </ul>

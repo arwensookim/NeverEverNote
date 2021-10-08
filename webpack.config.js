@@ -4,7 +4,7 @@ module.exports = {
   context: __dirname,
   entry: './frontend/neverever_note.jsx',
   output: {
-    path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
+    path: path.resolve(__dirname, 'app', 'assets', 'javascripts', 'dist'),
     filename: 'bundle.js'
   },
   resolve: {
@@ -21,8 +21,14 @@ module.exports = {
             presets: ['@babel/env', '@babel/react']
           }
         },
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+        exclude: []
       }
-    ]
+    ],
+    
   },
   devtool: 'source-map'
 };

@@ -60,5 +60,7 @@ export const updateNotebook = (notebook) => dispatch => {
 
 export const deleteNotebook = (notebookId) => dispatch => (
     NotebookAPIUtil.deleteNotebook(notebookId)
-    .then(() => dispatch(removeNotebook(notebookId)))
+    .then(() => dispatch(removeNotebook(notebookId)),
+    err => dispatch(receiveNotebookErros(err.responseJSON)))
 )
+

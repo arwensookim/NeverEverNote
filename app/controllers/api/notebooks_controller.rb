@@ -35,7 +35,7 @@ class Api::NotebooksController < ApplicationController
     def destroy
         @notebook = Notebook.find_by(id: params[:id])
 
-        if ((@notebook.id != 1) && (@notebook.destroy))
+        if ((@notebook.title != "Default") && (@notebook.destroy))
             render :show
         else
             render json: @notebook.errors.full_messages, status: 422
