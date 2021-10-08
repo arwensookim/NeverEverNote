@@ -4,6 +4,17 @@ import Modal from "react-modal";
 
 import { formatDateNotebook } from "../../util/date_util";
 
+const customStyles = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+      padding: '0px',
+    },
+  };
 
 
 class NotebooksIndex extends React.Component{
@@ -144,26 +155,28 @@ class NotebooksIndex extends React.Component{
                     ))}
                 </ul>
 
-                <Modal isOpen={this.state.modal} className="notebook-modal" ariaHideApp={false} >
+                <Modal isOpen={this.state.modal} className="notebook-modal" ariaHideApp={false} style={customStyles} >
                     <div className="rename-modal">
                         <h2 className="modal-header">Rename Notebook Title</h2>
                         <label className="modal-title">Title</label>
                         <input type="text" className="rename-title-input" placeholder="Title" value={this.state.renamedNotebook} onChange={this.update('renamedNotebook')} />
                         <div className="modal-button">
-                            <button className="cancel" onClick={this.handleCloseModal}>Cancel</button>
                             <button className="save" onClick={this.handleRename}>Save</button>
+                            <button className="cancel" onClick={this.handleCloseModal}>Cancel</button>
                         </div>
                     </div>
                 </Modal>
 
-                <Modal isOpen={this.state.notebookModal} className="notebook-modal" ariaHideApp={false} >
+                <Modal isOpen={this.state.notebookModal} className="notebook-modal" ariaHideApp={false} style={customStyles} >
                     <div className="create-modal">
                         <h2>Create New Notebook</h2>
-                        <label className="create-notebook-title-modal">Title</label>
-                        <input type="text" className="create-notebook-input-modal" placeholder="Title" value={this.state.title} onChange={this.update('title')}/>
-                        <div>
-                            <button onClick={this.handleCloseNotebookModal}>Cancel</button>
-                            <button onClick={this.handleCreateNotebook}>Create</button>
+                        <div className="input-area">
+                            <label className="create-notebook-title-modal">Title</label>
+                            <input type="text" className="create-notebook-input-modal" placeholder="Title" value={this.state.title} onChange={this.update('title')}/>
+                        </div>
+                        <div className="modal-button">
+                            <button className="create" onClick={this.handleCreateNotebook}>Create</button>
+                            <button className="cancel" onClick={this.handleCloseNotebookModal}>Cancel</button>
                         </div>
                     </div>
                 </Modal>
