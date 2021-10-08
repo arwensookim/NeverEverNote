@@ -47,9 +47,7 @@ class NotesIndexList extends React.Component {
         }
 
         return(
-
             <ul>
-                
                 {notes.map((note) => <NoteIndexItem note={note} key={note.id} url={this.props.url} />)}
             </ul>
         )
