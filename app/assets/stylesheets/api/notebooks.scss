@@ -50,6 +50,7 @@
         li:first-child {
             border-top: 2px solid #333333;
             font-size: 15px;
+            border-bottom: 1px solid gray;
         }
 
         li:nth-child(odd) {
@@ -63,15 +64,32 @@
             padding: 5px 15px 5px 15px;
             font-size: 17px;
 
+
             .notebook-list-title {
                 width: 50%;
+                
+                a {
+                    text-decoration: none;
+                    color: black;
+                    font-weight: bold;
+                    font-size: 15px;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+                
             }
             .notebook-list-created-by {
                 width: 30%;
+                text-align: center;
+                font-size: 15px;
             }
 
             .notebook-list-updated {
                 width: 30%;
+                text-align: center;
+                font-size: 15px;
             }
             .notebook-list-action-button {
                 // display: flex;
@@ -82,22 +100,22 @@
 
             .rename-button {
                 // display: flex;
-                background-color: rgb(126, 126, 126);
+                background-color: lightgray;
                 border-radius: 3px;
                 border: none;
                 height: 30px;
-                color: white;
+                color: black;
                 margin: 0px 5px 0px 5px;
                 padding: 5px 10px 5px 10px;
     
                 &:hover {
-                    background-color: rgb(133, 4, 4);
+                    background-color: gray;
                 }
             }
     
             .delete-notebook-button {
                 // display: flex;
-                background-color: rgb(160, 0, 0);
+                background-color: rgb(235, 162, 162);
                 border-radius: 3px;
                 border: none;
                 height: 30px;

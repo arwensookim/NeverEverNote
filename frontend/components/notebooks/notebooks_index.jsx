@@ -127,7 +127,7 @@ class NotebooksIndex extends React.Component{
                     {this.props.notebooks.map( (notebook, i) => (
                         <li key={notebook.id}>
                             <div className="notebook-list-title">
-                                <Link to={`/notebooks/${notebook.id}/notes`}>{notebook.title}</Link>
+                                <Link to={`/notebooks/${notebook.id}/notes`}><i className="fas fa-book"></i> {notebook.title}</Link>
                             </div>
 
                             <div className="notebook-list-created-by">
