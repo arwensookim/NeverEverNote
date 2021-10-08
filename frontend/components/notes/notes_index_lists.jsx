@@ -29,22 +29,22 @@ class NotesIndexList extends React.Component {
 
 
     render() {
-        // let notes = this.props.notes.sort()
-        // const date = notes.map((note, idx )=> [note.updated_at, idx]);
-        // date.sort().reverse();
-        // let sort_notes = [];
+        let notes = this.props.notes.sort()
+        const date = notes.map((note, idx )=> [note.updated_at, idx]);
+        date.sort().reverse();
+        let sort_notes = [];
 
-        // if (date){
-        //     for(let i = 0; i < date.length; i++){
-        //         let temp = date[i][1];
-        //         let temp_note = notes[temp];
-        //         sort_notes.push(temp_note);
-        //     }
-        // }
+        if (date){
+            for(let i = 0; i < date.length; i++){
+                let temp = date[i][1];
+                let temp_note = notes[temp];
+                sort_notes.push(temp_note);
+            }
+        }
 
-        // if(sort_notes){
-        //     notes = sort_notes;
-        // }
+        if(sort_notes){
+            notes = sort_notes;
+        }
 
         // if (this.props.notes.length === 0){
         //     return (
