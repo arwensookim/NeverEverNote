@@ -105,7 +105,7 @@ class NotebooksIndex extends React.Component{
         return(
             <div className="notebooks-index" >
                 <div className="notebook-header">
-                    <h1>Notebooks</h1>
+                    <h1><i className="fas fa-book"></i> Notebooks</h1>
                 </div>
 
                 <div className="notebook-subheader" >
