@@ -27,7 +27,7 @@ NeverEverNote is a clone of Evernote, a note taking web app. NeverEverNote allow
 
 
 ## Technologies Used
-NeverEverNote is built with PostgresSQL, Rails, React, and Redux.
+NeverEverNote is built with `PostgresSQL`, `Rails`, `React`, and `Redux`.
 
 PostgresSQL is used to store the users, notes, and notebooks in a database.
 
