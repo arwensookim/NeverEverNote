@@ -4,16 +4,16 @@ NeverEverNote is a clone of Evernote, a note taking web app. NeverEverNote allow
 
 [NeverEverNote](https://neverevernote.herokuapp.com)
 
-##### Homepage
+#### Homepage
 <img width="800" alt="homepage" src="app/assets/images/homepage.png">
 
-##### Login Page
+#### Login Page
 <img width="800" alt="loginpage" src="app/assets/images/loginpage.png">
 
-##### Notes Page
+#### Notes Page
 <img width="800" alt="notes-page" src="app/assets/images/notes-page.png">
 
-##### Notebooks Page
+#### Notebooks Page
 <img width="800" alt="notebook-page" src="app/assets/images/notebook-page.png">
 
 <br/>
