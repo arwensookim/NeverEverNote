@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Modal from "react-modal";
 
+import { formatDateNotebook } from "../../util/date_util";
+
 
 
 class NotebooksIndex extends React.Component{
@@ -118,7 +120,7 @@ class NotebooksIndex extends React.Component{
                     <li>
                         <div className="notebook-list-title"><h3>TITLE</h3></div>
                         <div className="notebook-list-created-by"><h3>CREATED BY</h3></div>
-                        <div className="notebook-list-updated"></div>
+                        <div className="notebook-list-updated">UPDATED AT</div>
                         <div className="notebook-list-action-button"></div>
                     </li>
 
@@ -132,9 +134,7 @@ class NotebooksIndex extends React.Component{
                                 {this.props.currentUser.username}
                             </div>
 
-                            <div className="notebook-list-updated">
-
-                            </div>
+                            <div className="notebook-list-updated">{formatDateNotebook(notebook.updated_at)}</div>
                             {i === 0 ? <div className="notebook-list-action-button">Cannot Modify</div> :  
                             <div className="notebook-list-action-button">
                                 <button className="rename-button" onClick={ () =>{this.handleOpenRenameModal(notebook)} }>Edit Title</button>

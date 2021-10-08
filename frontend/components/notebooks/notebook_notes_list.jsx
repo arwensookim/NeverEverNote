@@ -23,9 +23,27 @@ class NotebookNotesList extends React.Component {
             .then( res => this.props.history.push(`/notebooks/${this.props.currentNotebookId}/notes/${res.note.id}`))
     }
     render() {
+
+        let notes = this.props.notes.sort()
+        const date = notes.map((note, i )=> [note.updated_at, i]);
+        date.sort().reverse();
+        let sort_notes = [];
+
+        if (date){
+            for(let i = 0; i < date.length; i++){
+                let temp = date[i][1];
+                let temp_note = notes[temp];
+                sort_notes.push(temp_note);
+            }
+        }
+
+        if(sort_notes){
+            notes = sort_notes;
+        }
+
         return(
             <ul>
-                {this.props.notes.map(note => <NotebookNotesItem note={note} key={note.id} currentNotebookId={this.props.currentNotebookId}/>)}
+                {notes.map(note => <NotebookNotesItem note={note} key={note.id} currentNotebookId={this.props.currentNotebookId}/>)}
             </ul>
         )
     }

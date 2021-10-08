@@ -30,7 +30,7 @@ class NotesIndexList extends React.Component {
 
     render() {
         let notes = this.props.notes.sort()
-        const date = notes.map((note, idx )=> [note.updated_at, idx]);
+        const date = notes.map((note, i )=> [note.updated_at, i]);
         date.sort().reverse();
         let sort_notes = [];
 
@@ -46,26 +46,11 @@ class NotesIndexList extends React.Component {
             notes = sort_notes;
         }
 
-        // if (this.props.notes.length === 0){
-        //     return (
-        //         <ul>
-        //             <div className="notes-list-firstnote">
-        //             Create your first note
-        //             </div>
-        //             <div className="notes-list-clickme">
-        //             Click the 
-        //             <button onClick={this.handleNewNote} className="notes-list-newnote">+ New Note</button> button <br></br>
-        //             <div className="notes-list-clickme-second">in the sidebar to get started.</div>
-        //             </div>
-        //         </ul>
-        //     )
-        // }
-
         return(
 
             <ul>
                 
-                {this.props.notes.map((note) => <NoteIndexItem note={note} key={note.id} url={this.props.url} />)}
+                {notes.map((note) => <NoteIndexItem note={note} key={note.id} url={this.props.url} />)}
             </ul>
         )
     }
