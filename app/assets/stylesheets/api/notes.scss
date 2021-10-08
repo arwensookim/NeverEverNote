@@ -13,8 +13,9 @@
 
 .notes-index {
     display: flex;
+    border: 0.5px solid lightgray;
     flex-direction: column;
-    background-color: #6b6868;
+    background-color: lightgray;
     color: rgb(0, 0, 0);
     min-width: 250px;
     max-width: 250px;
@@ -22,9 +23,11 @@
 
     .notes-index-header {
         flex: 0 1 auto;
-        border-bottom: 1px solid rgb(63, 62, 62);
+        border-bottom: 1px solid rgb(194, 192, 192);
         height: auto;
-        font-size: 30px;
+        font-size: 20px;
+        font-family: 'Source Code Pro', monospace;
+
         padding: 15px;
 
         .notes-count {
@@ -32,7 +35,7 @@
             align-items: center;
             justify-content: space-between;
             font-size: 15px;
-            color: rgb(182, 180, 180);
+            color: rgb(83, 83, 83);
             padding-top: 20px;
 
         }
@@ -50,14 +53,13 @@
         li {
             display: flex;
             flex-direction: column;
-            height: 100px;
+            height: 130px;
             padding: 20px;
-            border-bottom: 1px solid rgb(63, 62, 62);
+            border-bottom: 1px solid rgb(194, 192, 192);
             text-decoration: none;
 
             .note-title {
-                // text-decoration: none;
-                // padding-bottom: 5px;
+                font-family: 'Source Code Pro', monospace;
                 font-size: 20px;
                 text-decoration: none;
                 margin-bottom: 10px;
@@ -68,11 +70,12 @@
                 flex-grow: 3;
                 text-decoration: none;
                 margin-top: 20px;
+                // font-family: 'Source Code Pro', monospace;
             }
 
             .note-datetime {
                 font-size: 12px;
-                color: rgb(146, 145, 145);
+                color: rgb(83, 83, 83);
                 padding-top: 10px;
             }
         }
