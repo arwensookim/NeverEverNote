@@ -11,7 +11,7 @@ import Homepage from "./home_page/homepage_content";
 import NoteShowContainer from "./notes/note_show_container";
 import Main from "./main_page/main";
 // import PageNotFound from "./session_form/page_not_found"
-import 'react-quill/dist/quill.snow.css';
+
 
 const App = () => (
     <div>
