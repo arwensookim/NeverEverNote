@@ -8,7 +8,7 @@ class Api::SessionsController < ApplicationController
     # debugger
     if @user.nil?
       # flash.now[:errors] = ['Invalid username or password.']
-      render json: ['Invalid username or password.'], status: 422
+      render json: ['Invalid username or password.'], status: 401
     else
     # Log them in and redirect them if we find them
       login!(@user)
