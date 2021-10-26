@@ -18,6 +18,10 @@ class User < ApplicationRecord
     foreign_key: :user_id,
     class_name: :Tag 
 
+  has_many :notebooks,
+    foreign_key: :user_id,
+    class_name: :Notebook
+
   def createNotebook
     notebook = Notebook.new({title: "Default",  user_id: self.id})
     notebook.save
