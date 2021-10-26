@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :notebooks
     resources :notes
     resource :tags
+    resource :note_tags
   end
 
   # sets root page to yeid: /static_pages/root.html.erb
