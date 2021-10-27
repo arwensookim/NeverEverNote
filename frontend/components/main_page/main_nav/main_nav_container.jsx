@@ -5,6 +5,7 @@ import { logout } from "../../../actions/session_actions";
 import { createNote, fetchNotes } from "../../../actions/note_actions";
 import mainNav from "./main_nav";
 import { fetchNotebooks, fetchNotebook } from "../../../actions/notebook_actions";
+import { fetchTags } from "../../../actions/tag_actions";
 
 const mSTP = (state, ownProps) => ({
     currentUser: state.entities.users[state.session.id],
@@ -20,7 +21,8 @@ const mDTP = dispatch => ({
     createNote: note => dispatch(createNote(note)),
     fetchNotebook: notebookId => dispatch(fetchNotebook(notebookId)),
     fetchNotebooks: () => dispatch(fetchNotebooks()),
-    fetchNotes: () => dispatch(fetchNotes())
+    fetchNotes: () => dispatch(fetchNotes()),
+    fetchTags: () => dispatch(fetchTags())
 })
 
 export default withRouter(connect(mSTP, mDTP)(mainNav))
