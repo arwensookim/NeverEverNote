@@ -43,6 +43,7 @@ class mainNav extends React.Component {
     componentDidMount() {
         this.props.fetchNotebooks();
         this.props.fetchNotes();
+        this.props.fetchTags();
     }
 
     render() {
@@ -67,7 +68,7 @@ class mainNav extends React.Component {
                     <ul className="nav-list">
                         <Link to='/notes'> <i className="fas fa-sticky-note"></i> Notes </Link>
                         <Link to='/notebooks'><i className="fas fa-book"></i> Notebooks </Link>
-
+                        <Link to='/tags'><i class="fas fa-tag"></i> Tags </Link>
                     </ul>
                 </div>
 
