@@ -23,6 +23,7 @@ const App = () => (
             <Route path="/notes/:noteId" component={Main} />
             <Route path="/notebooks" component={Main}/>
             <Route path="/notebooks/:notebookId/notes/:noteId" component={Main}/>
+            <Route path="/tags" component={Main} />
 
 
             <AuthRoute path="/" component={Homepage}/>

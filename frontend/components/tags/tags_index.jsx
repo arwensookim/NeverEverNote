@@ -1,5 +1,4 @@
 import React from "react";
-import { library } from "webpack";
 
 class TagsIndex extends React.Component {
     constructor(props) {
@@ -51,7 +50,7 @@ class TagsIndex extends React.Component {
         this.setState({tagmodal: false})
     }
 
-    handleOpenRetitmeModal(tag) {
+    handleOpenRetitleModal(tag) {
         this.handleOpenModal();
 
         this.setState({
@@ -75,10 +74,37 @@ class TagsIndex extends React.Component {
                 <div>
                     <Link to={`/tags/${tag.id}`}><img src={window.tagURL}/>{tag.title}</Link>
                 </div>
-            </li>)
+                <div>{this.props.currentUser.username}</div>
+                <div>
+                    <button onClick={() => this.handleOpenretitleModal(tag)}>Retitle</button>
+                    <button onClick={() => this.handleDelete(tag.id)}>Delete</button>
+                </div>
+            </li>
+            )
+        } else {
+            tag = '';
         }
+
         return(
-            <div></div>
+            <div className="tags-index">
+                <div className="tags-header">
+                    <h1>Tags</h1>
+                </div>
+
+                <div className="tags-subheader">
+                    <p>{this.props.tags.length} Tags</p>
+                    <button onClick={this.handleOpenTagModal} className="create-tag-button"><i class="fas fa-tag"></i> New Tag</button>
+                </div>
+
+                <ul className="tags-index-list">
+                    <li>
+                        <div className="tags-list-title"><h3>TITLE</h3></div>
+                        <div className="tags-list-created-by"><h3>CREATED BY</h3></div>
+                        <div className="tags-list-updated"><h3>UPDATED AT</h3></div>
+                        <div className="tags-list-action-button"></div>
+                    </li>
+                </ul>
+            </div>
         )
     }
 }
