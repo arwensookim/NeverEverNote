@@ -25,7 +25,7 @@ const App = () => (
             <Route path="/notebooks/:notebookId/notes/:noteId" component={Main}/>
 
 
-            <Route path="/" component={Homepage}/>
+            <AuthRoute path="/" component={Homepage}/>
 
         </Switch>
 
