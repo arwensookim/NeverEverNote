@@ -119,7 +119,6 @@ class TagsIndex extends React.Component {
                      </div>
                  </li>
                 ))}
-                {/* {tag} */}
                 </ul>
 
                 {/* <Modal isOpen={this.state.modal} className="overlay">

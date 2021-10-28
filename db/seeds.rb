@@ -9,6 +9,7 @@
 User.destroy_all
 Note.destroy_all
 Notebook.destroy_all
+# Tag.destroy_all
 
 
 demo = User.create!(username: "demouser", password: "password")
