@@ -9,6 +9,7 @@
 User.destroy_all
 Notebook.destroy_all
 Note.destroy_all
+Tag.destroy_all
 
 demo = User.create!(username: "demouser", password: "password")
 arwen = User.create!(username: "miknewra", password: "password123")
@@ -66,4 +67,9 @@ note6 = Note.create!(
     body: 'I am still not used to using functional component',
     user_id: demo.id,
     notebook_id: notebook2.id
+)
+
+tag1 = Tag.create!(
+    title: 'coding',
+    user_id: demo.id
 )

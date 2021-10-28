@@ -86,7 +86,7 @@ class TagsIndex extends React.Component {
         // } else {
         //     tag = '';
         // }
-
+        console.log(this.props.tags);
         return(
             <div className="tags-index">
                 <div className="tags-header">
@@ -95,7 +95,7 @@ class TagsIndex extends React.Component {
 
                 <div className="tags-subheader">
                     <p>{this.props.tags.length} Tags</p>
-                    <button onClick={this.handleOpenTagModal} className="create-tag-button"><i class="fas fa-tag"></i> New Tag</button>
+                    <button onClick={this.handleOpenTagModal} className="create-tag-button"><i className="fas fa-tag"></i> New Tag</button>
                 </div>
 
                 <ul className="tags-index-list">
