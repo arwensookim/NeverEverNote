@@ -20,27 +20,27 @@ const removeTag = (tagId) => ({
 })
 
 // thunk action creator
-export const fetchTags = () => dispatch => {
-    return TagApiUtil.fetchTags()
+export const fetchTags = () => dispatch => (
+    TagApiUtil.fetchTags()
         .then(tags => dispatch(receiveTags(tags)))
-}
+)
 
-export const fetchTag = (tagId) => dispatch => {
-    return TagApiUtil.fetchTag(tagId)
+export const fetchTag = (tagId) => dispatch => (
+    TagApiUtil.fetchTag(tagId)
         .then(tag => dispatch(receiveTag(tag)))
-}
+)
 
-export const createTag = (tag) => dispatch => {
-    return TagApiUtil.createTag(tag)
+export const createTag = (tag) => dispatch => (
+    TagApiUtil.createTag(tag)
         .then(tag => dispatch(receiveTag(tag)))
-}
+)
 
-export const updateTag = (tag) => dispatch => {
-    return TagApiUtil.updateTag(tag)
+export const updateTag = (tag) => dispatch => (
+    TagApiUtil.updateTag(tag)
         .then(tag => dispatch(receiveTag(tag)))
-}
+)
 
-export const deleteTag = (tagId) => dispatch => {
-    return TagApiUtil.deleteTag(tagId)
+export const deleteTag = (tagId) => dispatch => (
+    TagApiUtil.deleteTag(tagId)
         .then(() => dispatch(removeTag(tagId)))
-}
+)
