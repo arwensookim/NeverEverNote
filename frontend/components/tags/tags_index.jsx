@@ -83,33 +83,33 @@ class TagsIndex extends React.Component {
         // console.log(this.props.tags);
         return(
             <div className="tags-index">
-                <div className="tags-header">
+                <div className="tag-header">
                     <h1>Tags</h1>
                 </div>
 
-                <div className="tags-subheader">
+                <div className="tag-subheader">
                     <p>{this.props.tags.length} Tags</p>
-                    <button onClick={this.handleOpenTagModal} className="create-tag-button"><i className="fas fa-tag"></i> New Tag</button>
+                    <button onClick={this.handleOpenTagModal} className="create-tag-button"><i className="fas fa-tag"></i>  New Tag</button>
                 </div>
 
-                <ul className="tags-index-list">
+                <ul className="tag-index-list">
                     <li>
-                        <div className="tags-list-title"><h3>TITLE</h3></div>
-                        <div className="tags-list-created-by"><h3>CREATED BY</h3></div>
-                        <div className="tags-list-updated"><h3>UPDATED AT</h3></div>
-                        <div className="tags-list-action-button"></div>
+                        <div className="tag-list-title"><h3>TITLE</h3></div>
+                        <div className="tag-list-created-by"><h3>CREATED BY</h3></div>
+                        <div className="tag-list-updated"><h3>UPDATED AT</h3></div>
+                        <div className="tag-list-action-button"></div>
                     </li>
 
                 {this.props.tags.map( tag => (
                      <li key={tag.id}>
-                     <div className="tags-list-title">
-                         <Link to={`/tags/${tag.id}`}><i className="fas fa-tag"></i></Link>
+                     <div className="tag-list-title">
+                         <Link to={`/tags/${tag.id}`}><i className="fas fa-tag"></i>  {tag.title}</Link>
                      </div>
-                     <div className="tags-list-created-by">{this.props.currentUser.username}</div>
-                     <div className="tags-list-updated"> {formatDateNotebook(tag.updated_at)}</div>
-                     <div className="tags-list-action-button">
+                     <div className="tag-list-created-by">{this.props.currentUser.username}</div>
+                     <div className="tag-list-updated"> {formatDateNotebook(tag.updated_at)}</div>
+                     <div className="tag-list-action-button">
                          <button className="rename-button" onClick={() => this.handleOpenretitleModal(tag)}>Retitle</button>
-                         <button className="delete-notebook-button" onClick={() => this.handleDelete(tag.id)}>Delete</button>
+                         <button className="delete-tag-button" onClick={() => this.handleDelete(tag.id)}>Delete</button>
                      </div>
                  </li>
                 ))}
