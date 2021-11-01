@@ -28,7 +28,7 @@ export const updateNoteTag = note_tag => (
     })
 )
 
-export const deleteTag = note_tagId => (
+export const deleteNoteTag = note_tagId => (
     $.ajax({
         method: 'DELETE',
         url: `/api/note_tags/${note_tagId}`
