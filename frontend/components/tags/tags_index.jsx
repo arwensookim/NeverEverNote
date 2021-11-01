@@ -120,7 +120,7 @@ class TagsIndex extends React.Component {
                         <h2 className="modal-header">Retitle tag</h2>
                         <label className="modal-title">title</label>
                         <input className="rename-title-input" type="text" placeholder="Tag title" value={this.state.retitleTag} onChange={this.update('retitleTag')}/>
-                        <div className="modal-buttons">
+                        <div className="modal-button">
                                 <button className="save" onClick={this.handleRetitle}>Save</button>
                                 <button className="cancel" onClick={this.handleCloseModal}>Cancel</button>
                         </div>
@@ -136,7 +136,7 @@ class TagsIndex extends React.Component {
                             <input className="create-tag-input-modal" type="text" placeholder="Tag title" value={this.state.title} onChange={this.update('title')}/>
                         </div>
                         
-                        <div className="modal-buttons">
+                        <div className="modal-button">
                             <button className="create" onClick={this.handleCreateTag}>Create</button>
                             <button className="cancel" onClick={this.handleCloseTagModal}>Cancel</button>
                         </div>
