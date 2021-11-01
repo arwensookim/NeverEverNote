@@ -8,12 +8,12 @@ import { withRouter } from "react-router-dom";
 
 
 const mSTP = (state, ownProps)  => ({
-    noteTags : Object.values(state.entities.note_tgas),
+    noteTags : state.entities.note_tags,
     tag: state.entities.tags[ownProps.match.params.tagId],
     notes: Object.values(state.entities.notes),
     notebooks: Object.values(state.entities.notebooks),
     tags: Object.values(state.entities.tags),
-    currentUser: state.entities.user[state.session.id],
+    currentUser: state.session.id,
 })
 
 const mDTP = dispatch => ({

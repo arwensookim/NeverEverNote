@@ -1,5 +1,7 @@
 import React from "react";
 
+import TagsNotesList from "./tag_notes_list";
+
 class TagShow extends React.Component{
     constructor(props) {
         super(props)
@@ -17,7 +19,7 @@ class TagShow extends React.Component{
     // }
 
     render() {
-
+        if (!this.props.tag) return null;
         const {noteTags, tag, notes, notebooks, currentUser, fetchNoteTags, createNoteTag, deleteNoteTag, fetchTag, fetchNotes, createNote } = this.props;
 
         let tagNotes = [];
