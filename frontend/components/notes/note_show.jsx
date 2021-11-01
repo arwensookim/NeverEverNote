@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import * as ReactQuill from "react-quill";
+import Modal from "react-modal";
 
 class NoteShow extends React.Component{
     constructor(props) {
@@ -10,11 +11,15 @@ class NoteShow extends React.Component{
             title: '',
             body: '',
             notebook_id: null,
+            // modal: false,
+            tagTitle: ''
         }
 
         this.deleteNote = this.deleteNote.bind(this);
         this.handleQuillUpdate = this.handleQuillUpdate.bind(this);
         this.setToolbar = this.setToolbar.bind(this);
+        // this.handleOpenModal = this.handleOpenModal.bind(this);
+        // this.handleCloseModal = this.handleCloseModal.bind(this);
     }
 
     handleQuillUpdate(text) {
@@ -50,6 +55,49 @@ class NoteShow extends React.Component{
         this.props.deleteNote(this.state.id);
     }
 
+    updateTagField(e) {
+        this.setState({tagTitle: e.currentTarget.value})
+    }
+
+    // handleOpenModal() {
+    //     this.setState({modal: true})
+    // }
+
+    // handleCloseModal() {
+    //     this.setState({modal: false})
+    // }
+
+    handleSubmit() {
+        e.preventDefault();
+
+        const user_id = this.props.note.user_id;
+        const title = this.state.tagTitle;
+        const note_id = this.props.note.id;
+        this.setState( {tagTitle: ''});
+
+        let tag = this.props.tags.find( tag => {
+            return tag.title === title;
+        })
+
+        if(tag) {
+            const tag_id = tag.id;
+            this.props.createNoteTag({note_id, tag_id})
+                .then(res => {
+                    this.props.fetchNote(this.props.note.id)
+                    this.props.fetchNoteTags();
+                })
+        } else {
+            this.props.createTag({title, user_id})
+                .then(res => {
+                    const tag_id = res.tag.id;
+                    this.props.createNoteTag({note_id, tag_id})
+                        .then(res => {
+                            this.props.fetchNote(this.props.note.id)
+                            this.props(fetchNoteTags());
+                        })
+                })
+        }
+    }
     render() {
 
         let url;
@@ -58,6 +106,7 @@ class NoteShow extends React.Component{
         } else {
             url = "/notes"
         }
+
         return(
             <div className="note-update">
                 <div className="note-show-header">
@@ -70,9 +119,29 @@ class NoteShow extends React.Component{
 
                 <div className="edit-note">
                     <ReactQuill theme="snow" placeholder="body..." value={this.state.body} onChange={this.handleQuillUpdate} modules={quillModules} formats={quillFormats} onFocus={() => this.setToolbar(true)}/>
-                    {/* <textarea className="body-update"  value={this.state.body} onChange={this.update("body")} placeholder="write your body..."/> */}
                 </div>
-               
+
+                <div className="tags">
+                    <div><img src={window.tagURL} /></div>
+                    <ul className="note-tags-lists">
+                        {this.props.note.tags.map(tag => {
+                            if (!tag) {
+                                return null
+                            } else if (tag.note_id === note.id) {
+                                return (
+                                    <Link to={`/tags/${tag.id}`}>
+                                        <li className="tag-list-items" key={tag.id}>{tag.title}</li>
+                                    </Link>
+                                )
+                            }
+                        })}
+                    </ul>
+                    <div className="add-note-tag">
+                        <form onSubmit={this.handleSubmit}>
+                            <input className="tag-input" type="text" value={this.state.tagTitle} onChange={this.updateTagField} placeholder="Add Tag" />
+                        </form>
+                    </div>
+                </div>
             </div>
         )
     }
