@@ -3,13 +3,22 @@ class Api::TagsController < ApplicationController
 
 
     def index
-        @tags = current_user.tags
-        render :index
+        @tags = @current_user.tags
+        if @tags
+            render :index
+        else
+            render json: { error: "no tags found"}
+        end
+
     end
 
     def show
-        @tag = Tag.find_by(id: params[:tag][:id])
-        render :show
+        @tag = Tag.find_by(id: params[:id])
+        if @tag
+            render :show
+        else
+            render json: { error: "no tag found" }
+        end
     end
 
     def create

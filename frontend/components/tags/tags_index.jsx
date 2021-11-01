@@ -14,6 +14,14 @@ class TagsIndex extends React.Component {
             retitle: null,
             retitleTag: ""
         }
+        this.handleDelete = this.handleDelete.bind(this);
+        this.handleCreateTag = this.handleCreateTag.bind(this);
+        this.handleOpenModal = this.handleOpenModal.bind(this);
+        this.handleCloseModal = this.handleCloseModal.bind(this);
+        this.handleOpenTagModal = this.handleOpenTagModal.bind(this);
+        this.handleCloseTagModal = this.handleCloseTagModal.bind(this);
+        this.handleOpenRetitleModal = this.handleOpenRetitleModal.bind(this);
+        this.handleRetitle = this.handleRetitle.bind(this);
     }
 
     componentDidMount() {

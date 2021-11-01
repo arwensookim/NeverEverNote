@@ -6,6 +6,7 @@ import Root from "./components/root"
 import { signup, login } from "./actions/session_actions"
 import { createNotebook, fetchNotebook } from "./actions/notebook_actions";
 import { createNote, fetchNotes } from "./actions/note_actions";
+import { fetchTags } from "./actions/tag_actions";
 
  
 document.addEventListener("DOMContentLoaded", () => {
@@ -34,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.fetchNotes = fetchNotes;
     window.createNote = createNote;
     window.createNotebook = createNotebook;
+    window.fetchTags = fetchTags;
     // TESTING END
 
     const root = document.getElementById("root");

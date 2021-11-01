@@ -5,8 +5,8 @@ Rails.application.routes.draw do
     resource :session, only:[:create, :destroy]
     resources :notebooks
     resources :notes
-    resource :tags
-    resource :note_tags
+    resources :tags
+    resources :note_tags
   end
 
   # sets root page to yeid: /static_pages/root.html.erb
