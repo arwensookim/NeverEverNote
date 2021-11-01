@@ -1,11 +1,24 @@
- class NoteTag < ApplicationRecord
+#  class NoteTag < ApplicationRecord
+#     validates :note_id, presence: true, uniqueness: {scope: :tag_id}
+
+#     belongs_to :note,
+#         foreign_key: :note_id,
+#         class_name: "Note"
+
+#     belongs_to :tag,
+#         foreign_key: :tag_id,
+#         class_name: "Tag"
+# end
+
+
+class NoteTag < ApplicationRecord
     validates :note_id, presence: true, uniqueness: {scope: :tag_id}
 
     belongs_to :note,
         foreign_key: :note_id,
-        class_name: "Note"
+        class_name: :Note
 
     belongs_to :tag,
         foreign_key: :tag_id,
-        class_name: "Tag"
+        class_name: :Tag
 end
