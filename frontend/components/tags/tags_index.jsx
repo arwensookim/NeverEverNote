@@ -103,7 +103,7 @@ class TagsIndex extends React.Component {
                 {this.props.tags.map( tag => (
                      <li key={tag.id}>
                      <div className="tags-list-title">
-                         <Link to={`/tags/${tag.id}`}><img src={window.tagURL}/>{tag.title}</Link>
+                         <Link to={`/tags/${tag.id}`}><i className="fas fa-tag"></i></Link>
                      </div>
                      <div className="tags-list-created-by">{this.props.currentUser.username}</div>
                      <div className="tags-list-updated"> {formatDateNotebook(tag.updated_at)}</div>
@@ -115,27 +115,26 @@ class TagsIndex extends React.Component {
                 ))}
                 </ul>
 
-                <Modal isOpen={this.state.modal} className="overlay">
-                    <div className="my-modal">
-                        <h2 className="modal-title">Retitle tag</h2>
-                        <label className="modal-name">title</label>
-                        <input className="rename-notebook-input" type="text" placeholder="Tag title" value={this.state.retitleTag} onChange={this.update('retitleTag')}/>
+                <Modal isOpen={this.state.modal} className="tag-modal">
+                    <div className="rename-modal">
+                        <h2 className="modal-header">Retitle tag</h2>
+                        <label className="modal-title">title</label>
+                        <input className="rename-title-input" type="text" placeholder="Tag title" value={this.state.retitleTag} onChange={this.update('retitleTag')}/>
                         <div className="modal-buttons">
+                                <button className="save" onClick={this.handleRetitle}>Save</button>
                                 <button className="cancel" onClick={this.handleCloseModal}>Cancel</button>
-                                <button className="continue" onClick={this.handleRename}>Continue</button>
                         </div>
                     </div>
                 </Modal>
 
-                <Modal isOpen={this.state.tagmodal} className="notebook-modal">
+                <Modal isOpen={this.state.tagmodal} className="tag-modal">
                     <div className="create-modal">
                         <h2>Create new tag</h2>
-                        <p>Tags are useful for grouping notes around a common topic.</p>
-                        <div>
-                            <label className="ccreate-notebook-title-modal">title</label>
-                            <input className="create-notebook-input-modal" type="text" placeholder="Tag title" value={this.state.title} onChange={this.update('title')}/>
+                        {/* <p>Tags are useful for grouping notes around a common topic.</p> */}
+                        <div className="input-area">
+                            <label className="ccreate-tag-title-modal">title</label>
+                            <input className="create-tag-input-modal" type="text" placeholder="Tag title" value={this.state.title} onChange={this.update('title')}/>
                         </div>
-                       
                         
                         <div className="modal-buttons">
                             <button className="create" onClick={this.handleCreateTag}>Create</button>
