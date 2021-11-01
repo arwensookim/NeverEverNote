@@ -15,3 +15,15 @@ const mSTP = (state, ownProps)  => ({
     tags: Object.values(state.entities.tags),
     currentUser: state.entities.user[state.session.id],
 })
+
+const mDTP = dispatch => ({
+    fetchNoteTags: () => dispatch(fetchNoteTags()),
+    createNoteTag: note_tag => dispatch(createNoteTag(note_tag)),
+    deleteNoteTag: note_tagId => dispatch(deleteNoteTag(note_tagId)),
+
+    fetchTag: tagId => dispatch(fetchTag(tagId)),
+    fetchNotes: () => dispatch(fetchNotes()),
+    createNote: note => dispatch(createNote(note))
+})
+
+export default withRouter(connect(mSTP, mDTP)(TagShow));
