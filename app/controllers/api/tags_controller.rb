@@ -8,7 +8,7 @@ class Api::TagsController < ApplicationController
     end
 
     def show
-        @tag = Tag.find_by(id: params[:id])
+        @tag = Tag.find_by(id: params[:tag][:id])
         render :show
     end
 

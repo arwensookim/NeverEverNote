@@ -1,4 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import Modal from 'react-modal';
+
 import { formatDateNotebook } from "../../util/date_util";
 
 class TagsIndex extends React.Component {
@@ -68,25 +71,8 @@ class TagsIndex extends React.Component {
     }
 
     render() {
-        // let tag;
-        // if (this.props.tags) {
-        //     tag = this.props.tags.map(tag => 
-        //     <li key={tag.id}>
-        //         <div>
-        //             <Link to={`/tags/${tag.id}`}><img src={window.tagURL}/>{tag.title}</Link>
-        //         </div>
-        //         <div className="tags-list-created-by">{this.props.currentUser.username}</div>
-        //         <div className="tags-list-updated"> {formatDateNotebook(tag.updated_at)}</div>
-        //         <div className="tags-list-action-button">
-        //             <button className="rename-button" onClick={() => this.handleOpenretitleModal(tag)}>Retitle</button>
-        //             <button className="delete-notebook-button" onClick={() => this.handleDelete(tag.id)}>Delete</button>
-        //         </div>
-        //     </li>
-        //     )
-        // } else {
-        //     tag = '';
-        // }
-        console.log(this.props.tags);
+
+        // console.log(this.props.tags);
         return(
             <div className="tags-index">
                 <div className="tags-header">
@@ -121,7 +107,7 @@ class TagsIndex extends React.Component {
                 ))}
                 </ul>
 
-                {/* <Modal isOpen={this.state.modal} className="overlay">
+                <Modal isOpen={this.state.modal} className="overlay">
                     <div className="my-modal">
                         <h2 className="modal-title">Retitle tag</h2>
                         <label className="modal-name">title</label>
@@ -148,7 +134,7 @@ class TagsIndex extends React.Component {
                             <button className="cancel" onClick={this.handleCloseTagModal}>Cancel</button>
                         </div>
                     </div>
-                </Modal> */}
+                </Modal>
             </div>
         )
     }
