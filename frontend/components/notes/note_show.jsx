@@ -11,7 +11,6 @@ class NoteShow extends React.Component{
             title: '',
             body: '',
             notebook_id: null,
-            // modal: false,
             tagTitle: ''
         }
 
@@ -20,6 +19,8 @@ class NoteShow extends React.Component{
         this.setToolbar = this.setToolbar.bind(this);
         // this.handleOpenModal = this.handleOpenModal.bind(this);
         // this.handleCloseModal = this.handleCloseModal.bind(this);
+        this.updateTag = this.updateTag.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleQuillUpdate(text) {
@@ -32,12 +33,15 @@ class NoteShow extends React.Component{
 
 
     componentDidMount() {
+        this.props.fetchTags();
+        this.props.fetchNoteTags();
         this.props.fetchNotes()
             .then(res => {this.setState(this.props.note)});
     }
 
     componentDidUpdate(prevProps){
-        if((this.props.noteId !== prevProps.noteId)) {
+        if((this.props.noteId !== prevProps.noteId) || (this.props.notebookId !== prevProps.notebookId)) {
+            this.props.fetchTags();
             this.setState(this.props.note);
         }
     }
@@ -55,7 +59,7 @@ class NoteShow extends React.Component{
         this.props.deleteNote(this.state.id);
     }
 
-    updateTagField(e) {
+    updateTag(e) {
         this.setState({tagTitle: e.currentTarget.value})
     }
 
@@ -67,13 +71,13 @@ class NoteShow extends React.Component{
     //     this.setState({modal: false})
     // }
 
-    handleSubmit() {
+    handleSubmit(e) {
         e.preventDefault();
 
         const user_id = this.props.note.user_id;
         const title = this.state.tagTitle;
         const note_id = this.props.note.id;
-        this.setState( {tagTitle: ''});
+        this.setState( {tagTitle: ''} );
 
         let tag = this.props.tags.find( tag => {
             return tag.title === title;
@@ -99,6 +103,10 @@ class NoteShow extends React.Component{
         }
     }
     render() {
+
+        if(!this.props.note) {
+            return null;
+        } 
 
         let url;
         if(this.props.match.params.notebookId) {
@@ -127,7 +135,7 @@ class NoteShow extends React.Component{
                         {this.props.note.tags.map(tag => {
                             if (!tag) {
                                 return null
-                            } else if (tag.note_id === note.id) {
+                            } else if (tag.note_id === this.props.note.id) {
                                 return (
                                     <Link to={`/tags/${tag.id}`}>
                                         <li className="tag-list-items" key={tag.id}>{tag.title}</li>
@@ -138,7 +146,7 @@ class NoteShow extends React.Component{
                     </ul>
                     <div className="add-note-tag">
                         <form onSubmit={this.handleSubmit}>
-                            <input className="tag-input" type="text" value={this.state.tagTitle} onChange={this.updateTagField} placeholder="Add Tag" />
+                            <input className="tag-input" type="text" value={this.state.tagTitle} onChange={this.updateTag} placeholder="Add Tag" />
                         </form>
                     </div>
                 </div>

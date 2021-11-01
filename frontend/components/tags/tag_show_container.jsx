@@ -10,6 +10,7 @@ import { withRouter } from "react-router-dom";
 const mSTP = (state, ownProps)  => ({
     noteTags : state.entities.note_tags,
     tag: state.entities.tags[ownProps.match.params.tagId],
+    note: state.entities.notes[ownProps.match.params.noteId],
     notes: Object.values(state.entities.notes),
     notebooks: Object.values(state.entities.notebooks),
     tags: Object.values(state.entities.tags),
