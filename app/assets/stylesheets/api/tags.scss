@@ -46,10 +46,7 @@
     }
 
     .tag-index-list {
-        // display: flex;
-        // padding-top: 30px;
-        // border-bottom: 1px solid black;
-        // justify-content: space-evenly;
+
 
         li:first-child {
             border-top: 2px solid #333333;
@@ -70,7 +67,7 @@
 
 
             .tag-list-title {
-                width: 40%;
+                width: 50%;
                 
                 a {
                     text-decoration: none;
@@ -84,8 +81,8 @@
                 }
                 
             }
-            .ntag-list-created-by {
-                width: 40%;
+            .tag-list-created-by {
+                width: 30%;
                 text-align: center;
                 font-size: 15px;
             }
