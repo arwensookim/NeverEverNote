@@ -1,5 +1,4 @@
 import * as NoteTagApiUtil from "../util/note_tag_api_util";
-import { REMOVE_TAG } from "./tag_actions";
 
 export const RECEIVE_NOTE_TAGS  = "RECEIVE_NOTE_TAGS";
 export const RECEIVE_NOTE_TAG = "RECEIVE_NOTE_TAG";
