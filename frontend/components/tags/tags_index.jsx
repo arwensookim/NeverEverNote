@@ -84,7 +84,7 @@ class TagsIndex extends React.Component {
         return(
             <div className="tags-index">
                 <div className="tag-header">
-                    <h1>Tags</h1>
+                    <h1><i className="fas fa-tag"></i>  Tags</h1>
                 </div>
 
                 <div className="tag-subheader">
@@ -108,18 +108,18 @@ class TagsIndex extends React.Component {
                      <div className="tag-list-created-by">{this.props.currentUser.username}</div>
                      <div className="tag-list-updated"> {formatDateNotebook(tag.updated_at)}</div>
                      <div className="tag-list-action-button">
-                         <button className="rename-button" onClick={() => this.handleOpenretitleModal(tag)}>Retitle</button>
+                         <button className="rename-button" onClick={() => this.handleOpenRetitleModal(tag)}>Retitle</button>
                          <button className="delete-tag-button" onClick={() => this.handleDelete(tag.id)}>Delete</button>
                      </div>
                  </li>
                 ))}
                 </ul>
 
-                <Modal isOpen={this.state.modal} className="tag-modal">
+                <Modal isOpen={this.state.modal} className="tag-modal" ariaHideApp={false} >
                     <div className="rename-modal">
                         <h2 className="modal-header">Retitle tag</h2>
                         <label className="modal-title">title</label>
-                        <input className="rename-title-input" type="text" placeholder="Tag title" value={this.state.retitleTag} onChange={this.update('retitleTag')}/>
+                        <input className="rename-title-input" type="text" placeholder="Title" value={this.state.retitleTag} onChange={this.update('retitleTag')}/>
                         <div className="modal-button">
                                 <button className="save" onClick={this.handleRetitle}>Save</button>
                                 <button className="cancel" onClick={this.handleCloseModal}>Cancel</button>
