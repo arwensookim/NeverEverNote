@@ -40,7 +40,7 @@ class NotebookShow extends React.Component{
         return(
             <div className="notes-index">
                 <div className="notes-index-header">
-                    <h2>{notebook.title}</h2>
+                    <h2><i className="fas fa-book"></i> {notebook.title}</h2>
                     <div className="notes-count">{notebookNotes.length} notes</div>
                 </div>
                 <div className="notes-content">

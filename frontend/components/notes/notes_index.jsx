@@ -20,7 +20,7 @@ class NotesIndex extends React.Component{
         return(
             <div className="notes-index">
                 <div className="notes-index-header">
-                    <h2>Notes</h2>
+                    <h2><i className="fas fa-sticky-note"></i> Notes</h2>
                     <div className="notes-count">{this.props.notes.length} notes</div>
                 </div>
                 <div className="notes-content">
