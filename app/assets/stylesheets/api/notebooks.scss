@@ -35,9 +35,14 @@
             display: flex;
             // justify-content: center;
             line-height: 20px;
+            font-size: 17px;
 
             &:hover {
                 color: rgb(44, 64, 44);
+            }
+            .fas {
+                padding-right: 6px;
+                font-size: 1em;
             }
         }
     }
