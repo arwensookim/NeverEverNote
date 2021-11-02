@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import * as ReactQuill from "react-quill";
-import Modal from "react-modal";
+
 
 class NoteShow extends React.Component{
     constructor(props) {
@@ -11,16 +11,17 @@ class NoteShow extends React.Component{
             title: '',
             body: '',
             notebook_id: null,
-            tagTitle: ''
+            tagTitle: '',
+            tags: [],
         }
 
         this.deleteNote = this.deleteNote.bind(this);
         this.handleQuillUpdate = this.handleQuillUpdate.bind(this);
         this.setToolbar = this.setToolbar.bind(this);
-        // this.handleOpenModal = this.handleOpenModal.bind(this);
-        // this.handleCloseModal = this.handleCloseModal.bind(this);
+
         this.updateTag = this.updateTag.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleNewTag = this.handleNewTag.bind(this);
     }
 
     handleQuillUpdate(text) {
@@ -33,7 +34,8 @@ class NoteShow extends React.Component{
 
 
     componentDidMount() {
-        this.props.fetchTags();
+        this.props.fetchTags()
+            .then(res => {this.setState(this.props.note.tags)})
         this.props.fetchNoteTags();
         this.props.fetchNotes()
             .then(res => {this.setState(this.props.note)});
@@ -43,7 +45,9 @@ class NoteShow extends React.Component{
         if((this.props.noteId !== prevProps.noteId) || (this.props.notebookId !== prevProps.notebookId)) {
             this.props.fetchTags();
             this.setState(this.props.note);
+            // this.setState({tagTitle: ''})
         }
+
     }
 
     // this handler, you don't really do this. 
@@ -63,13 +67,14 @@ class NoteShow extends React.Component{
         this.setState({tagTitle: e.currentTarget.value})
     }
 
-    // handleOpenModal() {
-    //     this.setState({modal: true})
-    // }
+    handleNewTag(e) {
+        e.preventDefault();
 
-    // handleCloseModal() {
-    //     this.setState({modal: false})
-    // }
+        let tagTitle = this.state.tagTitle;
+        let tag = this.props.tags.find(tag => {
+            return tag.title === title;
+        })
+    }
 
     handleSubmit(e) {
         e.preventDefault();
@@ -82,26 +87,36 @@ class NoteShow extends React.Component{
         let tag = this.props.tags.find( tag => {
             return tag.title === title;
         })
-
+        console.log(this.state.tags);
+        const newTag = {
+            title: title,
+            user_id: user_id
+        }
         if(tag) {
             const tag_id = tag.id;
+            this.setState( {tags: [...this.state.tags, newTag]})
             this.props.createNoteTag({note_id, tag_id})
-                .then(res => {
-                    this.props.fetchNote(this.props.note.id)
-                    this.props.fetchNoteTags();
-                })
+            .then(res => {
+                console.log(res.json());
+                this.props.fetchNote(this.props.note.id)
+                this.props.fetchNoteTags();
+            })
         } else {
+            this.setState( {tags: [...this.state.tags, newTag]})
             this.props.createTag({title, user_id})
+            .then(res => {
+                const tag_id = res.tag.id;
+                this.props.createNoteTag({note_id, tag_id})
                 .then(res => {
-                    const tag_id = res.tag.id;
-                    this.props.createNoteTag({note_id, tag_id})
-                        .then(res => {
-                            this.props.fetchNote(this.props.note.id)
-                            this.props(fetchNoteTags());
-                        })
+                    console.log(res.json());
+                    this.props.fetchNote(this.props.note.id)
+                    this.props(fetchNoteTags());
                 })
+            })
         }
     }
+
+
     render() {
 
         if(!this.props.note) {
@@ -132,8 +147,7 @@ class NoteShow extends React.Component{
                 <div className="tags">
                     <div><img src={window.tagURL} /></div>
                     <ul className="note-tags-lists">
-                        {this.props.note.tags.map( tag => {
-                            {console.log(tag)}
+                        {this.state.tags.map( tag => {
                             if (!tag) {
                                 return null
                             } else {
@@ -147,7 +161,7 @@ class NoteShow extends React.Component{
                     </ul>
                     <div className="add-note-tag">
                         <form onSubmit={this.handleSubmit}>
-                            <input className="tag-input" type="text" value={this.state.tagTitle} onChange={this.updateTag} placeholder="Add Tag" />
+                            <input className="tag-input" type="text" value={this.state.tagTitle} onChange={this.updateTag} placeholder="Add Tag here" />
                         </form>
                     </div>
                 </div>
