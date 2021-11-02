@@ -52,6 +52,7 @@ class NotebooksIndex extends React.Component{
         const newNotebook = {
             title: this.state.title,
             user_id: this.props.currentUser.id
+
         }
 
         this.props.createNotebook(newNotebook);
@@ -123,7 +124,7 @@ class NotebooksIndex extends React.Component{
 
                 <div className="notebook-subheader" >
                     <p>{this.props.notebooks.length} Notebooks</p>
-                    <button onClick={this.handleOpenNotebookModal} className="createNotebook-button"><i className="fas fa-book"></i>Create Notebook</button>
+                    <button onClick={this.handleOpenNotebookModal} className="createNotebook-button"><i className="fas fa-book"></i> Create Notebook</button>
                 </div>
 
                 

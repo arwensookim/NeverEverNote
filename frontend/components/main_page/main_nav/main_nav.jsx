@@ -54,14 +54,14 @@ class mainNav extends React.Component {
         return(
             <div className="main-nav">
                 <div className="greeting">
-                    <div className="user-icon"><i className="far fa-user"></i></div>
+                    <div className="user-icon"><i className="far fa-user fa-2x" ></i></div>
                     {/* <div className="user-icon">{currentUser.username[0]}</div>  */}
                     <p>Welcome, {currentUser.username}</p>
                 </div>
 
                 <div className="add-note">
                         <button className="create-note" onClick={this.handleCreateNote}>
-                        <div className="plus-icon">+</div><div>Create Note</div>
+                        <div className="plus-icon">+</div><div className="text">Create Note</div>
                         </button>
                 </div>
 

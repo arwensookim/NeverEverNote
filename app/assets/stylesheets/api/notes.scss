@@ -21,15 +21,23 @@
     max-width: 250px;
     max-height: 100vh;
     // border-right: #000000;
+   
 
     .notes-index-header {
         flex: 0 1 auto;
         border-bottom: 1px solid rgb(194, 192, 192);
         height: auto;
-        font-size: 35px;
+        font-size: 30px;
         font-family: 'Source Code Pro', monospace;
         font-weight: bold;
         padding: 15px;
+        // min-width: 250px;
+        // max-width: 250px;
+        white-space: nowrap;
+        overflow: scroll;
+        text-overflow: ellipsis;
+        
+      
 
         .notes-count {
             display: flex;
@@ -63,15 +71,17 @@
                 font-family: 'Source Code Pro', monospace;
                 font-size: 16px;
                 text-decoration: none;
-                margin-bottom: 10px;
+                padding-bottom: 5px;
+                overflow: auto;
+                font-weight: bold;
             }
 
             .note-body {
-                font-size: 14px;
+                font-size: 12px;
                 flex-grow: 3;
                 text-decoration: none;
                 margin-top: 20px;
-                // font-family: 'Source Code Pro', monospace;
+                font-family: 'Source Code Pro', monospace;
             }
 
             .note-datetime {
@@ -192,10 +202,12 @@
         display: flex;
         align-items: center;
         text-align: center;
+        
       
     }
 
     .tag-list-items {
+        max-width: 150px;
         background-color: rgb(39, 172, 39);
         padding: 8px 5px 8px 15px;
         border-radius: 40px;
@@ -205,6 +217,9 @@
         text-align: center;
         text-decoration: none;
         font-family: 'Source Code Pro', monospace;
+        white-space: nowrap;
+        overflow: auto;
+        text-overflow: ellipsis;
     }
     
     .tag-input {
@@ -213,6 +228,7 @@
         padding: 8px 5px 8px 15px;
         border-radius: 40px;
         font-size: 15px;
+        overflow: auto;
     
         ::placeholder{
             color: white;

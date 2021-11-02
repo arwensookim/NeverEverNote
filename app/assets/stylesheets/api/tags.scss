@@ -4,7 +4,8 @@
 
 .tags-index {
     height: 100vh;
-    width: 100%;
+    max-width: 82%;
+    min-width: 82%;
     grid-column-start: 5;
     grid-column-end: 5;
     padding: 30px;
@@ -67,7 +68,10 @@
 
 
             .tag-list-title {
-                width: 50%;
+                width: 40%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
                 
                 a {
                     text-decoration: none;
@@ -82,13 +86,13 @@
                 
             }
             .tag-list-created-by {
-                width: 30%;
+                width: 20%;
                 text-align: center;
                 font-size: 15px;
             }
 
             .tag-list-updated {
-                width: 30%;
+                width: 20%;
                 text-align: center;
                 font-size: 15px;
             }

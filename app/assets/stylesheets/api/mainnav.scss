@@ -3,25 +3,30 @@
     color: #a6a6a6;
     text-decoration: none;
     height: 100vh;
-    max-width: 230px;
-    min-width: 230px;
+    max-width: 15%;
+    min-width: 15%;
 
     .greeting {
+
         display: flex;
-        justify-content: center;
-        // align-items: center;
+        justify-content: space-around;
+        // margin-left: 6px;
         margin-right: 6px;
-        padding: 6px;
+        padding: 3px;
         text-align: center;
         font-size: 20px;
         font-family: 'Source Code Pro', monospace;
         margin-top: 25px;
         margin-bottom: 25px;
         height: 100px;
+        align-items: center;
     }
-    .user-icon {
-        height: 100px;
+    .user-icon{
         padding-left: 15px;
+        padding-right: 5px;
+    }
+    .far {
+        color: green;
     }
 
     // .user-icon {
@@ -35,7 +40,6 @@
     //     text-transform: uppercase;
     //     font-family: Georgia, 'Times New Roman', Times, serif;
     //     margin: 6px;
-
     // }
 }
 
@@ -61,6 +65,13 @@
         margin-right: 7px;
         margin-left: 15px;
         font-size: 30px;
+        font-weight: bold;
+        font-family: 'Source Code Pro', monospace;
+    }
+    .text {
+        font-size: 20px;
+        font-weight: bold;
+        font-family: 'Source Code Pro', monospace;
     }
     &:hover {
         background-color: green;
@@ -72,7 +83,7 @@
 .nav-list {
     text-decoration: none;
     list-style-type: none;
-  
+    margin-left: 15px;
 
     a {
         display: flex;
@@ -96,7 +107,7 @@
     }
 
     .fas {
-        margin-right: 5px;
+        margin-right: 15px;
     }
 
 }
