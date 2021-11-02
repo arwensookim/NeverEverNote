@@ -4,6 +4,7 @@ import { formatDateTime } from "../../util/date_util";
 
 const TagNotesItem = props => {
 
+    // console.log(props.note);
     let date = props.note.updated_at;
 
     const currentDate = new Date();

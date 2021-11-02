@@ -20,7 +20,7 @@ class TagShow extends React.Component{
 
     render() {
         if (!this.props.tag) return null;
-        const {noteTags, tag, notes, notebooks, currentUser, fetchNoteTags, createNoteTag, deleteNoteTag, fetchTag, fetchNotes, createNote } = this.props;
+        const {noteTags, tag, note, notes, notebooks, currentUser, fetchNoteTags, createNoteTag, deleteNoteTag, fetchTag, fetchNotes, createNote } = this.props;
 
         let tagNotes = [];
         notes.forEach(note => {
@@ -30,6 +30,7 @@ class TagShow extends React.Component{
                 }
             })
         })
+
 
         return(
             <div className="notes-index">

@@ -5,6 +5,8 @@ import TagNotesItem from "./tag_notes_item";
 class TagNotesList extends React.Component{
     constructor(props) {
         super(props)
+
+        this.handleNewNote = this.handleNewNote.bind(this);
     }
 
     componentDidMount() {
@@ -43,7 +45,7 @@ class TagNotesList extends React.Component{
 
         return(
             <ul>
-                {notes.map(note => <TagNotesItem notebooks={this.props.notebooks} note={this.props.note} key={note.id} tagId={this.props.tagId} />)}
+                {notes.map(note => <TagNotesItem notebooks={this.props.notebooks} note={note} key={note.id} tagId={this.props.tagId} />)}
             </ul>
         )
     }
