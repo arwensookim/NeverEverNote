@@ -9,7 +9,7 @@
     .greeting {
         display: flex;
         justify-content: center;
-        align-items: center;
+        // align-items: center;
         margin-right: 6px;
         padding: 6px;
         text-align: center;
@@ -17,6 +17,7 @@
         font-family: 'Source Code Pro', monospace;
         margin-top: 25px;
         margin-bottom: 25px;
+        height: 100px;
     }
 
     .user-icon {
@@ -50,6 +51,7 @@
     margin: 13px;
     margin-bottom: 20px;
     // justify-content: center;
+    margin-bottom: 35px;
 
     .plus-icon {
         margin-right: 7px;
