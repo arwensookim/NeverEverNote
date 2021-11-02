@@ -26,7 +26,8 @@
     .notes-index-header {
         flex: 0 1 auto;
         border-bottom: 1px solid rgb(194, 192, 192);
-        height: auto;
+        max-height: 100px;
+        min-height: 100px;
         font-size: 30px;
         font-family: 'Source Code Pro', monospace;
         font-weight: bold;
@@ -102,7 +103,7 @@
         }
     }
 
-
+    
 }
 
 
@@ -220,6 +221,27 @@
         white-space: nowrap;
         overflow: auto;
         text-overflow: ellipsis;
+
+        // .tag-dropdown {
+        //     display: none;
+        //     background-color: white;
+        //     border: 1px solid lightgray;
+        //     border-radius: 5px;
+    
+        //     ul {
+        //         list-style-type: none;
+    
+        //         li {
+        //             padding: 10px;
+    
+        //             &:hover {
+        //                 background-color: lightgray;
+        //                 cursor: pointer;
+        //             }
+        //         }
+        //     }
+        // }
+    
     }
     
     .tag-input {

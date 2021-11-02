@@ -22,6 +22,7 @@ class NoteShow extends React.Component{
         this.updateTag = this.updateTag.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleNewTag = this.handleNewTag.bind(this);
+        this.handleRemoveTag = this.handleRemoveTag.bind(this);
     }
 
     handleQuillUpdate(text) {
@@ -112,6 +113,17 @@ class NoteShow extends React.Component{
     }
 
 
+    handleRemoveTag(tag) {
+        let deleteTag = Object.values(this.props.noteTags).find(note_tag => {
+            return (note_tag.note_id === this.props.note.id) & (note_tag.tag_id === tag.id)
+        })
+        this.props.deleteNoteTag(deleteTag)
+            .then(res => {
+                this.props.fetchNote(this.props.note.id)
+            });
+    }
+
+
     render() {
 
         if(!this.props.note) {
@@ -147,9 +159,17 @@ class NoteShow extends React.Component{
                                 return null
                             } else {
                                 return (
-                                    <Link to={`/tags/${tag.id}`}>
-                                        <li className="tag-list-items" key={tag.id}>{tag.title}</li>
-                                    </Link>
+                                    <div>
+                                        <Link to={`/tags/${tag.id}`}>
+                                            <li className="tag-list-items" key={tag.id}>{tag.title}</li>
+                                        </Link>
+                                        {/* <div className="tag-dropdown">
+                                            <ul>
+                                                <li onClick={ () => this.handleRemoveTag(tag)}>Remove Tag</li>
+                                            </ul>
+                                        </div> */}
+                                    </div>
+                                   
                                 )
                             }
                         })}
