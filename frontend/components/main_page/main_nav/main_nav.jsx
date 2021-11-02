@@ -54,7 +54,8 @@ class mainNav extends React.Component {
         return(
             <div className="main-nav">
                 <div className="greeting">
-                    <div className="user-icon">{currentUser.username[0]}</div> 
+                    <div className="user-icon"><i className="far fa-user"></i></div>
+                    {/* <div className="user-icon">{currentUser.username[0]}</div>  */}
                     <p>Welcome, {currentUser.username}</p>
                 </div>
 
