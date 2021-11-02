@@ -62,19 +62,27 @@
 
 }
 
+
 .nav-list {
     text-decoration: none;
     list-style-type: none;
+  
 
     a {
         display: flex;
         text-decoration: none;
         color: #a6a6a6;
-        font-size: 18px;
+        font-size: 22px;
         padding: 10px;
         font-family: 'Source Code Pro', monospace;
-        align-content: space-around;
+        align-content: center;
+        height: 70px;
+        align-items: center;
+        border-bottom: 0.3px solid rgb(124, 124, 124);
 
+    }
+    a:first-child {
+        border-top: 0.3px solid rgb(124, 124, 124)
     }
 
     a:hover {

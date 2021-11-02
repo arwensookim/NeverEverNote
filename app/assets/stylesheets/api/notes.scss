@@ -191,14 +191,20 @@
     .note-tags-lists {
         display: flex;
         align-items: center;
+        text-align: center;
+      
     }
 
     .tag-list-items {
         background-color: rgb(39, 172, 39);
-        padding: 5px 5px 5px 5px;
+        padding: 8px 5px 8px 15px;
         border-radius: 40px;
-        font-size: 14px;
+        font-size: 15px;
         margin-right: 5px;
+        color: black;
+        text-align: center;
+        text-decoration: none;
+        font-family: 'Source Code Pro', monospace;
     }
     
     .tag-input {
@@ -206,7 +212,7 @@
         background-color: rgb(39, 172, 39);
         padding: 8px 5px 8px 15px;
         border-radius: 40px;
-        font-size: 14px;
+        font-size: 15px;
     
         ::placeholder{
             color: white;

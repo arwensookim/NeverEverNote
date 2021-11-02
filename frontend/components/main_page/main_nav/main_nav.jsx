@@ -72,7 +72,6 @@ class mainNav extends React.Component {
                     </ul>
                 </div>
 
-
                 <div className="footer">
                     <Link to="/" onClick={this.props.logout}>Log Out</Link>
                 </div>
