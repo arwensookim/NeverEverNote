@@ -35,6 +35,8 @@ class NotebookShow extends React.Component{
         
         const { notes, history, currentNotebookId, currentUser, createNote, fetchNotes, notebook} = this.props;
 
+        // console.log(notebook);
+        if(!notebook) return null;
         return(
             <div className="notes-index">
                 <div className="notes-index-header">

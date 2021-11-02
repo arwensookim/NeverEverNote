@@ -132,10 +132,11 @@ class NoteShow extends React.Component{
                 <div className="tags">
                     <div><img src={window.tagURL} /></div>
                     <ul className="note-tags-lists">
-                        {this.props.note.tags.map(tag => {
+                        {this.props.note.tags.map( tag => {
+                            {console.log(tag)}
                             if (!tag) {
                                 return null
-                            } else if (tag.note_id === this.props.note.id) {
+                            } else {
                                 return (
                                     <Link to={`/tags/${tag.id}`}>
                                         <li className="tag-list-items" key={tag.id}>{tag.title}</li>

@@ -35,7 +35,7 @@ class TagShow extends React.Component{
         return(
             <div className="notes-index">
                 <div className="notes-index-header">
-                    <h2>{tag.title}</h2>
+                    <h2><i className="fas fa-tag"></i>  {tag.title}</h2>
                     <div className="notes-count">{tagNotes.length} notes</div>
                 </div>
                 <div className="notes-content">
