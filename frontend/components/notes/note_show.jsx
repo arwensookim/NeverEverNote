@@ -45,15 +45,10 @@ class NoteShow extends React.Component{
         if((this.props.noteId !== prevProps.noteId) || (this.props.notebookId !== prevProps.notebookId)) {
             this.props.fetchTags();
             this.setState(this.props.note);
-            // this.setState({tagTitle: ''})
         }
 
     }
 
-    // this handler, you don't really do this. 
-    // you are not guaranteed to get what you want, 100% of the time. 
-    // to guarantee what you want from setState, you use {...} spread operator
-    // biggest difference = merging two objects vs overwriting
     
     update(field) {
         return e => this.setState( { [field]: e.currentTarget.value }, () => {this.props.updateNote(this.state)})
