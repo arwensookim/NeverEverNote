@@ -21,7 +21,7 @@ class NoteShow extends React.Component{
 
         this.updateTag = this.updateTag.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleNewTag = this.handleNewTag.bind(this);
+        // this.handleNewTag = this.handleNewTag.bind(this);
         this.handleRemoveTag = this.handleRemoveTag.bind(this);
     }
 
@@ -63,14 +63,14 @@ class NoteShow extends React.Component{
         this.setState({tagTitle: e.currentTarget.value})
     }
 
-    handleNewTag(e) {
-        e.preventDefault();
+    // handleNewTag(e) {
+    //     e.preventDefault();
 
-        let tagTitle = this.state.tagTitle;
-        let tag = this.props.tags.find(tag => {
-            return tag.title === title;
-        })
-    }
+    //     let tagTitle = this.state.tagTitle;
+    //     let tag = this.props.tags.find(tag => {
+    //         return tag.title === title;
+    //     })
+    // }
 
     handleSubmit(e) {
         e.preventDefault();
@@ -79,21 +79,23 @@ class NoteShow extends React.Component{
         const title = this.state.tagTitle;
         const note_id = this.props.note.id;
         this.setState( {tagTitle: ''} );
+        let bool = false;
 
-        let tag = this.props.tags.find( tag => {
-            return tag.title === title;
+        this.props.tags.forEach( tag => {
+            if(tag.title === title) {
+                bool = true;
+            }
         })
-        console.log(this.state.tags);
         const newTag = {
             title: title,
             user_id: user_id
         }
-        if(tag) {
+        if(bool) {
             const tag_id = tag.id;
             this.setState( {tags: [...this.state.tags, newTag]})
             this.props.createNoteTag({note_id, tag_id})
             .then(res => {
-                console.log(res.json());
+                // console.log(res.json());
                 this.props.fetchNote(this.props.note.id)
                 this.props.fetchNoteTags();
             })
@@ -102,14 +104,16 @@ class NoteShow extends React.Component{
             this.props.createTag({title, user_id})
             .then(res => {
                 const tag_id = res.tag.id;
+                // console.log(note_id);
                 this.props.createNoteTag({note_id, tag_id})
                 .then(res => {
-                    console.log(res.json());
+                    // console.log(res.json());
                     this.props.fetchNote(this.props.note.id)
-                    this.props(fetchNoteTags());
+                    this.props.fetchNoteTags();
                 })
             })
         }
+        // console.log(bool);
     }
 
 

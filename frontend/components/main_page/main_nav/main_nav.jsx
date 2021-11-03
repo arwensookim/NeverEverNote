@@ -69,12 +69,12 @@ class mainNav extends React.Component {
                     <ul className="nav-list">
                         <Link to='/notes'> <i className="fas fa-sticky-note"></i> Notes </Link>
                         <Link to='/notebooks'><i className="fas fa-book"></i> Notebooks </Link>
-                        <Link to='/tags'><i class="fas fa-tag"></i> Tags </Link>
+                        <Link to='/tags'><i className="fas fa-tag"></i> Tags </Link>
                     </ul>
                 </div>
 
                 <div className="footer">
-                    <Link to="/" onClick={this.props.logout}><i class="fas fa-sign-out-alt"></i> Log Out</Link>
+                    <Link to="/" onClick={this.props.logout}><i className="fas fa-sign-out-alt"></i> Log Out</Link>
                 </div>
             </div>
         )

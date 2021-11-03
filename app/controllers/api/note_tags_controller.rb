@@ -7,9 +7,9 @@ class Api::NoteTagsController < ApplicationController
     end
 
     def show
-        @note_tag = NoteTag.find_by(id: params[:id])
+        @note_tag = NoteTag.find_by(id: params[:note_tag][:id])
         render :show
-    end
+    end 
 
     def create
         @note_tag = NoteTag.new(note_tag_params)
@@ -18,11 +18,12 @@ class Api::NoteTagsController < ApplicationController
             render :show
         else
             render json: @note_tag.errors.full_messages, status: 422
+            # render :anything
         end
     end
 
     def update
-        @note_tag = NoteTag.find_by(id: params[:id])
+        @note_tag = NoteTag.find_by(id: params[:note_tag][:id])
 
         if @note_tag.update(note_tag_params)
             render :show
@@ -46,3 +47,5 @@ class Api::NoteTagsController < ApplicationController
         params.require(:note_tag).permit(:note_id, :tag_id)
     end
 end
+
+

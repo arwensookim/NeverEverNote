@@ -12,7 +12,7 @@ class Homepage extends React.Component{
                 <NavBarContainer />
                 <div className="bar">
                     <p className="main-text">never ever make your life messy</p>
-                    <button className="download-button" >Downlaod</button>
+                    <button className="download-button" >Download</button>
                 </div>
 
                 <div className="main-top">

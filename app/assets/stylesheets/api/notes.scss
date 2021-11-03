@@ -207,7 +207,7 @@
     }
 
     .tag-list-items {
-        max-width: 150px;
+        max-width: 165px;
         background-color: rgb(39, 172, 39);
         padding: 8px 5px 8px 15px;
         border-radius: 40px;
@@ -220,7 +220,7 @@
         white-space: nowrap;
         overflow: auto;
         text-overflow: ellipsis;
-
+        text-transform: uppercase;
     
     }
     
