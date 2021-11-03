@@ -39,6 +39,11 @@
   .ql-editor > * {
     cursor: text;
   }
+
+  .ql-editor strong {
+      font-weight: bold;
+  }
+
   .ql-editor p,
   .ql-editor ol,
   .ql-editor ul,
