@@ -148,7 +148,7 @@ class NoteShow extends React.Component{
  
 
                 <div className="edit-note">
-                    <ReactQuill theme="snow" placeholder="body..." value={this.state.body} onChange={this.handleQuillUpdate} modules={quillModules} formats={quillFormats} onFocus={() => this.setToolbar(true)}/>
+                    <ReactQuill className="text-editor" theme="snow" placeholder="body..." value={this.state.body} onChange={this.handleQuillUpdate} modules={quillModules} formats={quillFormats} onFocus={() => this.setToolbar(true)}/>
                 </div>
 
                 <div className="tags">
@@ -163,11 +163,7 @@ class NoteShow extends React.Component{
                                         <Link to={`/tags/${tag.id}`}>
                                             <li className="tag-list-items" key={tag.id}>{tag.title}</li>
                                         </Link>
-                                        {/* <div className="tag-dropdown">
-                                            <ul>
-                                                <li onClick={ () => this.handleRemoveTag(tag)}>Remove Tag</li>
-                                            </ul>
-                                        </div> */}
+                          
                                     </div>
                                    
                                 )
