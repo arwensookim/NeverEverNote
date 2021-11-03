@@ -1,11 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 import NavBarContainer from "../navbar/navbar_container";
 
 
 class Homepage extends React.Component{
+
     render() {
+        if (this.props.currentUser) {
+            return <Redirect to="/notes" />;
+        }
+
         return(
 
             <div className="homepage">

@@ -63,14 +63,6 @@ class NoteShow extends React.Component{
         this.setState({tagTitle: e.currentTarget.value})
     }
 
-    // handleNewTag(e) {
-    //     e.preventDefault();
-
-    //     let tagTitle = this.state.tagTitle;
-    //     let tag = this.props.tags.find(tag => {
-    //         return tag.title === title;
-    //     })
-    // }
 
     handleSubmit(e) {
         e.preventDefault();
@@ -79,23 +71,26 @@ class NoteShow extends React.Component{
         const title = this.state.tagTitle;
         const note_id = this.props.note.id;
         this.setState( {tagTitle: ''} );
-        let bool = false;
-
-        this.props.tags.forEach( tag => {
-            if(tag.title === title) {
-                bool = true;
+        
+        for (let i=0; i < this.state.tags.length; i++) {
+            if(this.state.tags[i].title === title) {
+                return null;
             }
+        }
+
+        const tag = this.props.tags.find( tag => {
+            return tag.title === title;
         })
+
         const newTag = {
             title: title,
             user_id: user_id
         }
-        if(bool) {
+        if(tag) {
             const tag_id = tag.id;
             this.setState( {tags: [...this.state.tags, newTag]})
             this.props.createNoteTag({note_id, tag_id})
             .then(res => {
-                // console.log(res.json());
                 this.props.fetchNote(this.props.note.id)
                 this.props.fetchNoteTags();
             })
@@ -104,16 +99,13 @@ class NoteShow extends React.Component{
             this.props.createTag({title, user_id})
             .then(res => {
                 const tag_id = res.tag.id;
-                // console.log(note_id);
                 this.props.createNoteTag({note_id, tag_id})
                 .then(res => {
-                    // console.log(res.json());
                     this.props.fetchNote(this.props.note.id)
                     this.props.fetchNoteTags();
                 })
             })
         }
-        // console.log(bool);
     }
 
 
