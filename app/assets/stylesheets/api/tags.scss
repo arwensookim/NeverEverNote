@@ -3,12 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .tags-index {
-    height: 100vh;
+    max-height: 100vh;
     max-width: 82%;
     min-width: 82%;
     grid-column-start: 5;
     grid-column-end: 5;
-    padding: 30px;
+    padding: 30px 0px 0px 30px;
     // flex-direction: column;
 
     .tag-header {
@@ -104,7 +104,8 @@
             }
             .tag-list-action-button {
                 // display: flex;
-                align-items: center;
+                justify-content: flex-end;
+                align-items: flex-end;
                 text-align: center;
                 width: 30%;
             }
