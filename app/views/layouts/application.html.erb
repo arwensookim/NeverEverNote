@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>NeverEverNote</title>
+    <title>  NeverEverNote</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
@@ -18,7 +18,8 @@
       window.tagURL = "<%= image_url('green-tags.png') %>"
     </script>
     
-
+    <%= favicon_link_tag asset_path('evernoteLogo.ico') %>
+    <%# <link rel=“shorcut-icon” href="<%= image_url('evernoteLogo.ico') %>"  type=“image/x-icon” /> %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
