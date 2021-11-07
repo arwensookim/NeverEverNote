@@ -110,5 +110,4 @@ export default connect(mSTP, mDTP)(NotebooksIndex);
 
 
 ## Future Features
-- Tags
 - Moving Notes (from current notebook to other notebook)
