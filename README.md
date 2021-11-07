@@ -13,13 +13,13 @@ NeverEverNote is a clone of Evernote, a note taking web app. NeverEverNote allow
 #### Notes Page
 <img width="800" alt="notes-page" src="app/assets/images/notes-page.png">
 
-### Notes Edit Page
+#### Notes Edit Page
 <img width="800" alt="notes-show-page" src="app/assets/images/notes-show-page.png">
 
 #### Notebooks Page
 <img width="800" alt="notebook-page" src="app/assets/images/notebook-page.png">
 
-### Tags Page
+#### Tags Page
 <img width="800" alt="tags-page" src="app/assets/images/tags-page.png">
 <br/>
 
