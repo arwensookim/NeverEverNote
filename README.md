@@ -13,9 +13,14 @@ NeverEverNote is a clone of Evernote, a note taking web app. NeverEverNote allow
 #### Notes Page
 <img width="800" alt="notes-page" src="app/assets/images/notes-page.png">
 
+### Notes Edit Page
+<img width="800" alt="notes-show-page" src="app/assets/images/notes-show-page.png">
+
 #### Notebooks Page
 <img width="800" alt="notebook-page" src="app/assets/images/notebook-page.png">
 
+### Tags Page
+<img width="800" alt="tags-page" src="app/assets/images/tags-page.png">
 <br/>
 
 ## Deployment
@@ -108,7 +113,46 @@ const mDTP = dispatch => ({
 export default connect(mSTP, mDTP)(NotebooksIndex);
 ```
 
+#### Tags
+Tags are a table in the database with columns for tite and user_id.
+
+Users are able to create, view, update, and delete `tags`.
+
+Users can see all tags only logging in by clicking tags on the left sidebar. 
+Lists of tags will display on the page, where users can retitle or delete tags.
+
+User also can add tags from the notes directly from the bottom of notes edit page.
+This will automatically update tags lists as well.
+
+```Javascript
+<div className="tags">
+    <div><img src={window.tagURL} /></div>
+    <ul className="note-tags-lists">
+        {this.state.tags.map( tag => {
+            if (!tag) {
+                return null
+            } else {
+                return (
+                    <div>
+                        <Link to={`/tags/${tag.id}`}>
+                            <li className="tag-list-items" key={tag.id}>{tag.title}</li>
+                        </Link>
+            
+                    </div>
+                    
+                )
+            }
+        })}
+    </ul>
+    <div className="add-note-tag">
+        <form onSubmit={this.handleSubmit}>
+            <input className="tag-input" type="text" value={this.state.tagTitle} onChange={this.updateTag} placeholder="Add Tag here" />
+        </form>
+    </div>
+</div>
+```
+
+
 
 ## Future Features
-- Tags
 - Moving Notes (from current notebook to other notebook)
